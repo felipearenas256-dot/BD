@@ -16,7 +16,7 @@ SGBD: MySQL 8.0 (probado en 8.0.46)
 ```bash
 cd Practica5
 bash ejecutar_p5.sh                                   # crea la BD y corre las 5 actividades
-mysql -h 127.0.0.1 -u root -p'RootLab_P4_2026!' universidad_umb < consultas_demo_p5.sql
+mysql -h 127.0.0.1 -u root -p'RootLab_P4_2026!' --force -t universidad_umb < consultas_demo_p5.sql
 ```
 
 Los `ERROR 1644 (45000): La nota debe estar entre 0.0 y 5.0` son **esperados**: demuestran que el trigger rechaza notas inválidas.

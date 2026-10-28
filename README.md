@@ -9,5 +9,5 @@
 ```bash
 cd Practica5
 bash ejecutar_p5.sh
-mysql -h 127.0.0.1 -u root -p'RootLab_P4_2026!' universidad_umb < consultas_demo_p5.sql
+mysql -h 127.0.0.1 -u root -p'RootLab_P4_2026!' --force -t universidad_umb < consultas_demo_p5.sql
 ```
