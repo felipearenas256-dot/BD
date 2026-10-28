@@ -1,8 +1,8 @@
-+----------------------------------------------+
-| caso_valido                                  |
-+----------------------------------------------+
-| OK: matrícula 110 registrada el 2026-10-28.  |
-+----------------------------------------------+
++-----------------------------------------------+
+| caso_valido                                   |
++-----------------------------------------------+
+| OK: matrícula 1677 registrada el 2026-10-28.  |
++-----------------------------------------------+
 +------------------------------------+
 | estudiante_inexistente             |
 +------------------------------------+
@@ -43,74 +43,624 @@
 +----+----------+---------------+
 |  5 |     NULL | SIN NOTAS     |
 +----+----------+---------------+
-+--------------+------------+------------+----------+-----------------+
-| IdEstudiante | Nombre     | Apellido   | Promedio | EstadoAcademico |
-+--------------+------------+------------+----------+-----------------+
-|            1 | Laura      | Gómez      |     4.60 | EXCELENTE       |
-|            2 | Andrés     | Rodríguez  |     4.07 | BUENO           |
-|            3 | Camila     | Torres     |     3.20 | APROBADO        |
-|            4 | Julián     | Martínez   |     2.63 | REPROBADO       |
-|            5 | Valentina  | Ruiz       |     NULL | SIN NOTAS       |
-|            6 | Santiago   | Pérez      |     NULL | SIN NOTAS       |
-|            7 | Mariana    | López      |     NULL | SIN NOTAS       |
-|            8 | Sebastián  | Ramírez    |     NULL | SIN NOTAS       |
-|            9 | Isabella   | Castro     |     NULL | SIN NOTAS       |
-|           10 | Nicolás    | Herrera    |     NULL | SIN NOTAS       |
-|           11 | Gabriela   | Vargas     |     NULL | SIN NOTAS       |
-|           12 | Mateo      | Moreno     |     NULL | SIN NOTAS       |
-|           13 | Daniela    | Rojas      |     NULL | SIN NOTAS       |
-|           14 | Samuel     | Jiménez    |     NULL | SIN NOTAS       |
-|           15 | Sofía      | Díaz       |     NULL | SIN NOTAS       |
-|           16 | Tomás      | Gutiérrez  |     NULL | SIN NOTAS       |
-|           17 | Paula      | Romero     |     NULL | SIN NOTAS       |
-|           18 | Emilio     | Suárez     |     NULL | SIN NOTAS       |
-|           19 | Natalia    | Álvarez    |     NULL | SIN NOTAS       |
-|           20 | David      | Mendoza    |     NULL | SIN NOTAS       |
-|           21 | Juliana    | Ortiz      |     NULL | SIN NOTAS       |
-|           22 | Alejandro  | Castillo   |     NULL | SIN NOTAS       |
-|           23 | Antonella  | Peña       |     NULL | SIN NOTAS       |
-|           24 | Felipe     | Navarro    |     NULL | SIN NOTAS       |
-|           25 | Carolina   | Salazar    |     NULL | SIN NOTAS       |
-|           26 | Martín     | Cárdenas   |     NULL | SIN NOTAS       |
-|           27 | Luciana    | Guerrero   |     NULL | SIN NOTAS       |
-|           28 | Diego      | Medina     |     NULL | SIN NOTAS       |
-|           29 | Manuela    | Parra      |     NULL | SIN NOTAS       |
-|           30 | Esteban    | Quintero   |     NULL | SIN NOTAS       |
-+--------------+------------+------------+----------+-----------------+
-+--------------+----------------------+-----------------+------+
-| IdEstudiante | NombreCompleto       | FechaNacimiento | Edad |
-+--------------+----------------------+-----------------+------+
-|           19 | ÁLVAREZ, NATALIA     | 2003-06-12      |   23 |
-|           26 | CÁRDENAS, MARTÍN     | 2004-03-21      |   22 |
-|           22 | CASTILLO, ALEJANDRO  | 2000-09-18      |   26 |
-|            9 | CASTRO, ISABELLA     | 2004-04-27      |   22 |
-|           15 | DÍAZ, SOFÍA          | 2003-11-25      |   22 |
-|            1 | GÓMEZ, LAURA         | 2003-05-14      |   23 |
-|           27 | GUERRERO, LUCIANA    | 2002-11-11      |   23 |
-|           16 | GUTIÉRREZ, TOMÁS     | 2001-05-09      |   25 |
-|           10 | HERRERA, NICOLÁS     | 2002-09-15      |   24 |
-|           14 | JIMÉNEZ, SAMUEL      | 2002-03-17      |   24 |
-|            7 | LÓPEZ, MARIANA       | 2003-07-19      |   23 |
-|            4 | MARTÍNEZ, JULIÁN     | 2001-08-30      |   25 |
-|           28 | MEDINA, DIEGO        | 2001-07-07      |   25 |
-|           20 | MENDOZA, DAVID       | 2001-10-29      |   24 |
-|           12 | MORENO, MATEO        | 2000-06-22      |   26 |
-|           24 | NAVARRO, FELIPE      | 2002-01-26      |   24 |
-|           21 | ORTIZ, JULIANA       | 2004-12-05      |   21 |
-|           29 | PARRA, MANUELA       | 2005-05-28      |   21 |
-|           23 | PEÑA, ANTONELLA      | 2005-04-02      |   21 |
-|            6 | PÉREZ, SANTIAGO      | 2002-02-11      |   24 |
-|           30 | QUINTERO, ESTEBAN    | 2003-02-03      |   23 |
-|            8 | RAMÍREZ, SEBASTIÁN   | 2001-12-03      |   24 |
-|            2 | RODRÍGUEZ, ANDRÉS    | 2002-11-02      |   23 |
-|           13 | ROJAS, DANIELA       | 2004-10-08      |   22 |
-|           17 | ROMERO, PAULA        | 2005-02-14      |   21 |
-|            5 | RUIZ, VALENTINA      | 2005-03-09      |   21 |
-|           25 | SALAZAR, CAROLINA    | 2003-09-09      |   23 |
-|           18 | SUÁREZ, EMILIO       | 2002-08-01      |   24 |
-|            3 | TORRES, CAMILA       | 2004-01-23      |   22 |
-|           11 | VARGAS, GABRIELA     | 2003-01-30      |   23 |
-+--------------+----------------------+-----------------+------+
++--------------+-------------+------------+----------+-----------------+
+| IdEstudiante | Nombre      | Apellido   | Promedio | EstadoAcademico |
++--------------+-------------+------------+----------+-----------------+
+|            1 | Laura       | Gómez      |     4.60 | EXCELENTE       |
+|            2 | Andrés      | Rodríguez  |     4.07 | BUENO           |
+|            3 | Camila      | Torres     |     3.20 | APROBADO        |
+|            4 | Julián      | Martínez   |     2.63 | REPROBADO       |
+|            5 | Valentina   | Ruiz       |     NULL | SIN NOTAS       |
+|            6 | Daniela     | Cárdenas   |     NULL | SIN NOTAS       |
+|            7 | Lorena      | Moreno     |     NULL | SIN NOTAS       |
+|            8 | Lucía       | Martínez   |     NULL | SIN NOTAS       |
+|            9 | Valentina   | Torres     |     NULL | SIN NOTAS       |
+|           10 | Victoria    | Vargas     |     NULL | SIN NOTAS       |
+|           11 | Mateo       | Gómez      |     NULL | SIN NOTAS       |
+|           12 | Mía         | Cárdenas   |     NULL | SIN NOTAS       |
+|           13 | Diego       | Medina     |     NULL | SIN NOTAS       |
+|           14 | Jerónimo    | Herrera    |     NULL | SIN NOTAS       |
+|           15 | Miguel      | Navarro    |     NULL | SIN NOTAS       |
+|           16 | Cristian    | Cortés     |     NULL | SIN NOTAS       |
+|           17 | Alejandra   | Parra      |     NULL | SIN NOTAS       |
+|           18 | Gabriela    | García     |     NULL | SIN NOTAS       |
+|           19 | Daniela     | Rodríguez  |     NULL | SIN NOTAS       |
+|           20 | Valeria     | Ruiz       |     NULL | SIN NOTAS       |
+|           21 | Angie       | Sánchez    |     NULL | SIN NOTAS       |
+|           22 | Mariana     | Restrepo   |     NULL | SIN NOTAS       |
+|           23 | Isabella    | Mejía      |     NULL | SIN NOTAS       |
+|           24 | Alejandra   | Acosta     |     NULL | SIN NOTAS       |
+|           25 | Camilo      | Mendoza    |     NULL | SIN NOTAS       |
+|           26 | Laura       | Gil        |     NULL | SIN NOTAS       |
+|           27 | Alejandro   | Ospina     |     NULL | SIN NOTAS       |
+|           28 | Lucía       | Cortés     |     NULL | SIN NOTAS       |
+|           29 | Melissa     | García     |     NULL | SIN NOTAS       |
+|           30 | Ximena      | Peña       |     NULL | SIN NOTAS       |
+|           31 | Salomé      | Bermúdez   |     NULL | SIN NOTAS       |
+|           32 | Manuela     | Suárez     |     NULL | SIN NOTAS       |
+|           33 | Laura       | Ramos      |     NULL | SIN NOTAS       |
+|           34 | Emmanuel    | Ramírez    |     NULL | SIN NOTAS       |
+|           35 | Jorge       | Moreno     |     NULL | SIN NOTAS       |
+|           36 | Kevin       | Ramos      |     NULL | SIN NOTAS       |
+|           37 | María       | Niño       |     NULL | SIN NOTAS       |
+|           38 | Antonella   | Torres     |     NULL | SIN NOTAS       |
+|           39 | Andrea      | Martínez   |     NULL | SIN NOTAS       |
+|           40 | Gabriela    | Pérez      |     NULL | SIN NOTAS       |
+|           41 | Angie       | Vargas     |     NULL | SIN NOTAS       |
+|           42 | Victoria    | Ramírez    |     NULL | SIN NOTAS       |
+|           43 | Thiago      | Beltrán    |     NULL | SIN NOTAS       |
+|           44 | Martín      | Fajardo    |     NULL | SIN NOTAS       |
+|           45 | Samuel      | Muñoz      |     NULL | SIN NOTAS       |
+|           46 | Samuel      | Bermúdez   |     NULL | SIN NOTAS       |
+|           47 | Juan        | Fajardo    |     NULL | SIN NOTAS       |
+|           48 | Kevin       | Cifuentes  |     NULL | SIN NOTAS       |
+|           49 | Esteban     | Díaz       |     NULL | SIN NOTAS       |
+|           50 | Santiago    | Moreno     |     NULL | SIN NOTAS       |
+|           51 | Ximena      | Medina     |     NULL | SIN NOTAS       |
+|           52 | Daniel      | Sánchez    |     NULL | SIN NOTAS       |
+|           53 | Andrés      | Cárdenas   |     NULL | SIN NOTAS       |
+|           54 | Gabriel     | Acosta     |     NULL | SIN NOTAS       |
+|           55 | Ana         | Álvarez    |     NULL | SIN NOTAS       |
+|           56 | Laura       | Bermúdez   |     NULL | SIN NOTAS       |
+|           57 | Nicolás     | Ospina     |     NULL | SIN NOTAS       |
+|           58 | Salomé      | Romero     |     NULL | SIN NOTAS       |
+|           59 | Angie       | Castro     |     NULL | SIN NOTAS       |
+|           60 | Camilo      | Mejía      |     NULL | SIN NOTAS       |
+|           61 | Ana         | Álvarez    |     NULL | SIN NOTAS       |
+|           62 | Emmanuel    | Romero     |     NULL | SIN NOTAS       |
+|           63 | Miguel      | Martínez   |     NULL | SIN NOTAS       |
+|           64 | Paula       | Medina     |     NULL | SIN NOTAS       |
+|           65 | Sara        | Vélez      |     NULL | SIN NOTAS       |
+|           66 | Paula       | Cárdenas   |     NULL | SIN NOTAS       |
+|           67 | Daniela     | Ruiz       |     NULL | SIN NOTAS       |
+|           68 | Mateo       | Álvarez    |     NULL | SIN NOTAS       |
+|           69 | Cristian    | Hernández  |     NULL | SIN NOTAS       |
+|           70 | Kevin       | Fajardo    |     NULL | SIN NOTAS       |
+|           71 | Iván        | Gutiérrez  |     NULL | SIN NOTAS       |
+|           72 | Gabriel     | Muñoz      |     NULL | SIN NOTAS       |
+|           73 | Alejandra   | Peña       |     NULL | SIN NOTAS       |
+|           74 | Natalia     | Restrepo   |     NULL | SIN NOTAS       |
+|           75 | Emmanuel    | Ospina     |     NULL | SIN NOTAS       |
+|           76 | Alejandro   | Moreno     |     NULL | SIN NOTAS       |
+|           77 | Mía         | Castro     |     NULL | SIN NOTAS       |
+|           78 | Paula       | Cortés     |     NULL | SIN NOTAS       |
+|           79 | Antonella   | Cifuentes  |     NULL | SIN NOTAS       |
+|           80 | Tomás       | Castillo   |     NULL | SIN NOTAS       |
+|           81 | Juan        | Vélez      |     NULL | SIN NOTAS       |
+|           82 | Isabella    | Moreno     |     NULL | SIN NOTAS       |
+|           83 | Daniela     | Moreno     |     NULL | SIN NOTAS       |
+|           84 | Diego       | Cárdenas   |     NULL | SIN NOTAS       |
+|           85 | Salomé      | Mejía      |     NULL | SIN NOTAS       |
+|           86 | Simón       | Álvarez    |     NULL | SIN NOTAS       |
+|           87 | Cristian    | Rojas      |     NULL | SIN NOTAS       |
+|           88 | Angie       | Castillo   |     NULL | SIN NOTAS       |
+|           89 | Diego       | Castro     |     NULL | SIN NOTAS       |
+|           90 | Maximiliano | Guerrero   |     NULL | SIN NOTAS       |
+|           91 | Melissa     | Rojas      |     NULL | SIN NOTAS       |
+|           92 | Catalina    | López      |     NULL | SIN NOTAS       |
+|           93 | Lucía       | Castro     |     NULL | SIN NOTAS       |
+|           94 | Daniela     | Rojas      |     NULL | SIN NOTAS       |
+|           95 | Diego       | Bermúdez   |     NULL | SIN NOTAS       |
+|           96 | Catalina    | Jiménez    |     NULL | SIN NOTAS       |
+|           97 | Esteban     | Ortiz      |     NULL | SIN NOTAS       |
+|           98 | Valentina   | Jiménez    |     NULL | SIN NOTAS       |
+|          100 | Emmanuel    | Mejía      |     NULL | SIN NOTAS       |
+|          101 | Valeria     | Castillo   |     NULL | SIN NOTAS       |
+|          102 | Mariana     | Peña       |     NULL | SIN NOTAS       |
+|          103 | Alejandro   | Cárdenas   |     NULL | SIN NOTAS       |
+|          104 | Gabriela    | Romero     |     NULL | SIN NOTAS       |
+|          105 | Lorena      | Ramos      |     NULL | SIN NOTAS       |
+|          106 | Ana         | Rincón     |     NULL | SIN NOTAS       |
+|          107 | Ximena      | Pérez      |     NULL | SIN NOTAS       |
+|          108 | David       | Gil        |     NULL | SIN NOTAS       |
+|          109 | Diana       | García     |     NULL | SIN NOTAS       |
+|          110 | Ximena      | Peña       |     NULL | SIN NOTAS       |
+|          111 | Diego       | Hernández  |     NULL | SIN NOTAS       |
+|          112 | Camilo      | Gil        |     NULL | SIN NOTAS       |
+|          113 | Jerónimo    | Martínez   |     NULL | SIN NOTAS       |
+|          114 | Diego       | Ruiz       |     NULL | SIN NOTAS       |
+|          115 | Paula       | Vargas     |     NULL | SIN NOTAS       |
+|          116 | Joaquín     | Castillo   |     NULL | SIN NOTAS       |
+|          117 | Mateo       | López      |     NULL | SIN NOTAS       |
+|          118 | Iván        | Londoño    |     NULL | SIN NOTAS       |
+|          119 | Valeria     | Quintero   |     NULL | SIN NOTAS       |
+|          120 | Salomé      | Fajardo    |     NULL | SIN NOTAS       |
+|          121 | Gabriela    | Díaz       |     NULL | SIN NOTAS       |
+|          122 | Alejandro   | Salazar    |     NULL | SIN NOTAS       |
+|          123 | Emmanuel    | Suárez     |     NULL | SIN NOTAS       |
+|          124 | Miguel      | Navarro    |     NULL | SIN NOTAS       |
+|          125 | Emilio      | Patiño     |     NULL | SIN NOTAS       |
+|          126 | Camilo      | Rodríguez  |     NULL | SIN NOTAS       |
+|          127 | Joaquín     | Ruiz       |     NULL | SIN NOTAS       |
+|          128 | Miguel      | Díaz       |     NULL | SIN NOTAS       |
+|          129 | Daniel      | Fajardo    |     NULL | SIN NOTAS       |
+|          130 | Manuela     | Salazar    |     NULL | SIN NOTAS       |
+|          131 | Simón       | Acosta     |     NULL | SIN NOTAS       |
+|          132 | Martín      | Torres     |     NULL | SIN NOTAS       |
+|          133 | Esteban     | Castillo   |     NULL | SIN NOTAS       |
+|          134 | Diego       | Sánchez    |     NULL | SIN NOTAS       |
+|          135 | Ana         | Ortiz      |     NULL | SIN NOTAS       |
+|          136 | Laura       | Cifuentes  |     NULL | SIN NOTAS       |
+|          137 | Valentina   | Vargas     |     NULL | SIN NOTAS       |
+|          138 | Thiago      | Fajardo    |     NULL | SIN NOTAS       |
+|          139 | María       | Ramos      |     NULL | SIN NOTAS       |
+|          140 | Jorge       | Niño       |     NULL | SIN NOTAS       |
+|          141 | Paula       | Suárez     |     NULL | SIN NOTAS       |
+|          142 | Maximiliano | Medina     |     NULL | SIN NOTAS       |
+|          143 | Melissa     | Cifuentes  |     NULL | SIN NOTAS       |
+|          144 | Andrés      | Patiño     |     NULL | SIN NOTAS       |
+|          145 | Luciana     | Rojas      |     NULL | SIN NOTAS       |
+|          146 | Lorena      | Gómez      |     NULL | SIN NOTAS       |
+|          147 | Jerónimo    | Peña       |     NULL | SIN NOTAS       |
+|          148 | Lucía       | Vélez      |     NULL | SIN NOTAS       |
+|          149 | Gabriel     | Hernández  |     NULL | SIN NOTAS       |
+|          150 | Lucía       | Mejía      |     NULL | SIN NOTAS       |
+|          151 | Luciana     | Moreno     |     NULL | SIN NOTAS       |
+|          152 | Jerónimo    | Fajardo    |     NULL | SIN NOTAS       |
+|          153 | María       | Medina     |     NULL | SIN NOTAS       |
+|          154 | Joaquín     | Romero     |     NULL | SIN NOTAS       |
+|          155 | Maximiliano | Castillo   |     NULL | SIN NOTAS       |
+|          156 | Salomé      | Acosta     |     NULL | SIN NOTAS       |
+|          157 | Cristian    | Sánchez    |     NULL | SIN NOTAS       |
+|          158 | Thiago      | Mendoza    |     NULL | SIN NOTAS       |
+|          159 | Antonella   | Cárdenas   |     NULL | SIN NOTAS       |
+|          160 | Laura       | Ramos      |     NULL | SIN NOTAS       |
+|          161 | Manuela     | Vargas     |     NULL | SIN NOTAS       |
+|          162 | Miguel      | Vélez      |     NULL | SIN NOTAS       |
+|          163 | Luciana     | Mendoza    |     NULL | SIN NOTAS       |
+|          164 | Mía         | Gutiérrez  |     NULL | SIN NOTAS       |
+|          165 | Juan        | Mejía      |     NULL | SIN NOTAS       |
+|          166 | Lucía       | Jiménez    |     NULL | SIN NOTAS       |
+|          167 | Juan        | Ramírez    |     NULL | SIN NOTAS       |
+|          168 | Daniel      | Mendoza    |     NULL | SIN NOTAS       |
+|          169 | Luciana     | Guerrero   |     NULL | SIN NOTAS       |
+|          170 | Camilo      | Castillo   |     NULL | SIN NOTAS       |
+|          171 | Alejandro   | Ramírez    |     NULL | SIN NOTAS       |
+|          172 | Camilo      | Parra      |     NULL | SIN NOTAS       |
+|          173 | Manuela     | Peña       |     NULL | SIN NOTAS       |
+|          174 | Carolina    | Álvarez    |     NULL | SIN NOTAS       |
+|          175 | Nicolás     | Niño       |     NULL | SIN NOTAS       |
+|          176 | Valentina   | Salazar    |     NULL | SIN NOTAS       |
+|          177 | Iván        | Ramos      |     NULL | SIN NOTAS       |
+|          178 | Sara        | Cárdenas   |     NULL | SIN NOTAS       |
+|          179 | Nicolás     | Ospina     |     NULL | SIN NOTAS       |
+|          180 | Ana         | Ruiz       |     NULL | SIN NOTAS       |
+|          181 | Angie       | Bermúdez   |     NULL | SIN NOTAS       |
+|          182 | Juliana     | Álvarez    |     NULL | SIN NOTAS       |
+|          183 | Ana         | Jiménez    |     NULL | SIN NOTAS       |
+|          184 | Lorena      | Peña       |     NULL | SIN NOTAS       |
+|          185 | Mía         | Cárdenas   |     NULL | SIN NOTAS       |
+|          186 | Miguel      | Acosta     |     NULL | SIN NOTAS       |
+|          187 | Simón       | Ospina     |     NULL | SIN NOTAS       |
+|          188 | Samuel      | Fajardo    |     NULL | SIN NOTAS       |
+|          189 | Sebastián   | Peña       |     NULL | SIN NOTAS       |
+|          190 | Antonella   | Muñoz      |     NULL | SIN NOTAS       |
+|          191 | Tomás       | Romero     |     NULL | SIN NOTAS       |
+|          192 | Sofía       | Martínez   |     NULL | SIN NOTAS       |
+|          193 | Carolina    | Mendoza    |     NULL | SIN NOTAS       |
+|          194 | Gabriela    | Hernández  |     NULL | SIN NOTAS       |
+|          195 | Sofía       | Mejía      |     NULL | SIN NOTAS       |
+|          196 | Santiago    | Castro     |     NULL | SIN NOTAS       |
+|          197 | Iván        | Mejía      |     NULL | SIN NOTAS       |
+|          198 | Mariana     | Gutiérrez  |     NULL | SIN NOTAS       |
+|          199 | Óscar       | Vargas     |     NULL | SIN NOTAS       |
+|          200 | Emilio      | Gutiérrez  |     NULL | SIN NOTAS       |
+|          201 | Sara        | Álvarez    |     NULL | SIN NOTAS       |
+|          202 | Lorena      | Rodríguez  |     NULL | SIN NOTAS       |
+|          203 | Manuela     | Mejía      |     NULL | SIN NOTAS       |
+|          204 | Andrea      | Gómez      |     NULL | SIN NOTAS       |
+|          205 | Gabriela    | Álvarez    |     NULL | SIN NOTAS       |
+|          206 | Gabriela    | Medina     |     NULL | SIN NOTAS       |
+|          207 | Natalia     | Cortés     |     NULL | SIN NOTAS       |
+|          208 | Mariana     | Ospina     |     NULL | SIN NOTAS       |
+|          209 | Kevin       | Peña       |     NULL | SIN NOTAS       |
+|          210 | Valeria     | Pérez      |     NULL | SIN NOTAS       |
+|          211 | Cristian    | Peña       |     NULL | SIN NOTAS       |
+|          212 | Mateo       | Díaz       |     NULL | SIN NOTAS       |
+|          213 | Laura       | Quintero   |     NULL | SIN NOTAS       |
+|          214 | Lucía       | Cárdenas   |     NULL | SIN NOTAS       |
+|          215 | Laura       | Hernández  |     NULL | SIN NOTAS       |
+|          216 | Kevin       | Ruiz       |     NULL | SIN NOTAS       |
+|          217 | Antonella   | Navarro    |     NULL | SIN NOTAS       |
+|          218 | Sebastián   | Herrera    |     NULL | SIN NOTAS       |
+|          219 | Mateo       | Quintero   |     NULL | SIN NOTAS       |
+|          220 | Miguel      | López      |     NULL | SIN NOTAS       |
+|          221 | Mariana     | Moreno     |     NULL | SIN NOTAS       |
+|          222 | Miguel      | Castillo   |     NULL | SIN NOTAS       |
+|          223 | Nicolás     | Rincón     |     NULL | SIN NOTAS       |
+|          224 | Iván        | Guerrero   |     NULL | SIN NOTAS       |
+|          225 | Juliana     | Cárdenas   |     NULL | SIN NOTAS       |
+|          226 | Valeria     | Ortiz      |     NULL | SIN NOTAS       |
+|          227 | Sebastián   | Torres     |     NULL | SIN NOTAS       |
+|          228 | Andrés      | Suárez     |     NULL | SIN NOTAS       |
+|          229 | Catalina    | Quintero   |     NULL | SIN NOTAS       |
+|          230 | Sara        | Álvarez    |     NULL | SIN NOTAS       |
+|          231 | Ana         | Hernández  |     NULL | SIN NOTAS       |
+|          232 | Lorena      | Ruiz       |     NULL | SIN NOTAS       |
+|          233 | María       | Patiño     |     NULL | SIN NOTAS       |
+|          234 | Lorena      | Ruiz       |     NULL | SIN NOTAS       |
+|          235 | Gabriel     | Parra      |     NULL | SIN NOTAS       |
+|          236 | Lucía       | Gutiérrez  |     NULL | SIN NOTAS       |
+|          237 | Daniela     | Moreno     |     NULL | SIN NOTAS       |
+|          238 | Juliana     | Suárez     |     NULL | SIN NOTAS       |
+|          239 | Melissa     | Gutiérrez  |     NULL | SIN NOTAS       |
+|          240 | Gabriela    | Castillo   |     NULL | SIN NOTAS       |
+|          241 | Alejandra   | Beltrán    |     NULL | SIN NOTAS       |
+|          242 | Lucía       | Fajardo    |     NULL | SIN NOTAS       |
+|          243 | Laura       | Ramos      |     NULL | SIN NOTAS       |
+|          244 | Salomé      | Sánchez    |     NULL | SIN NOTAS       |
+|          245 | Tomás       | Cortés     |     NULL | SIN NOTAS       |
+|          246 | Santiago    | Navarro    |     NULL | SIN NOTAS       |
+|          247 | Nicolás     | Londoño    |     NULL | SIN NOTAS       |
+|          248 | Jerónimo    | Ruiz       |     NULL | SIN NOTAS       |
+|          249 | Óscar       | Castro     |     NULL | SIN NOTAS       |
+|          250 | Miguel      | García     |     NULL | SIN NOTAS       |
+|          251 | Sebastián   | Pérez      |     NULL | SIN NOTAS       |
+|          252 | Gabriela    | Gómez      |     NULL | SIN NOTAS       |
+|          253 | Tomás       | Ospina     |     NULL | SIN NOTAS       |
+|          254 | Luciana     | García     |     NULL | SIN NOTAS       |
+|          255 | Tomás       | Hernández  |     NULL | SIN NOTAS       |
+|          256 | Nicolás     | Patiño     |     NULL | SIN NOTAS       |
+|          257 | Ana         | Vélez      |     NULL | SIN NOTAS       |
+|          258 | Maximiliano | Díaz       |     NULL | SIN NOTAS       |
+|          259 | Lucía       | Rojas      |     NULL | SIN NOTAS       |
+|          260 | Esteban     | Vargas     |     NULL | SIN NOTAS       |
+|          261 | Emmanuel    | Restrepo   |     NULL | SIN NOTAS       |
+|          262 | Gabriela    | Patiño     |     NULL | SIN NOTAS       |
+|          263 | Juliana     | Rojas      |     NULL | SIN NOTAS       |
+|          264 | Simón       | Gil        |     NULL | SIN NOTAS       |
+|          265 | Miguel      | Pérez      |     NULL | SIN NOTAS       |
+|          266 | Paula       | Mejía      |     NULL | SIN NOTAS       |
+|          267 | Juliana     | Fajardo    |     NULL | SIN NOTAS       |
+|          268 | Daniel      | Fajardo    |     NULL | SIN NOTAS       |
+|          269 | Samuel      | Pérez      |     NULL | SIN NOTAS       |
+|          270 | Juan        | Castillo   |     NULL | SIN NOTAS       |
+|          271 | Felipe      | Díaz       |     NULL | SIN NOTAS       |
+|          272 | Santiago    | Gómez      |     NULL | SIN NOTAS       |
+|          273 | Ximena      | Cárdenas   |     NULL | SIN NOTAS       |
+|          274 | Esteban     | Peña       |     NULL | SIN NOTAS       |
+|          275 | Ximena      | Salazar    |     NULL | SIN NOTAS       |
+|          276 | Victoria    | Martínez   |     NULL | SIN NOTAS       |
+|          277 | Martín      | Gutiérrez  |     NULL | SIN NOTAS       |
+|          278 | Mariana     | Álvarez    |     NULL | SIN NOTAS       |
+|          279 | Alejandra   | Rincón     |     NULL | SIN NOTAS       |
+|          280 | Maximiliano | Fajardo    |     NULL | SIN NOTAS       |
+|          281 | Mateo       | Mendoza    |     NULL | SIN NOTAS       |
+|          282 | Luciana     | Cortés     |     NULL | SIN NOTAS       |
+|          283 | Victoria    | Ospina     |     NULL | SIN NOTAS       |
+|          284 | Esteban     | Londoño    |     NULL | SIN NOTAS       |
+|          285 | Angie       | Gómez      |     NULL | SIN NOTAS       |
+|          286 | Carolina    | Ramírez    |     NULL | SIN NOTAS       |
+|          287 | Iván        | Rodríguez  |     NULL | SIN NOTAS       |
+|          288 | Jerónimo    | Torres     |     NULL | SIN NOTAS       |
+|          289 | Andrea      | Ramírez    |     NULL | SIN NOTAS       |
+|          290 | Carolina    | Martínez   |     NULL | SIN NOTAS       |
+|          291 | Cristian    | Muñoz      |     NULL | SIN NOTAS       |
+|          292 | Emmanuel    | Acosta     |     NULL | SIN NOTAS       |
+|          293 | Diego       | Rincón     |     NULL | SIN NOTAS       |
+|          294 | Santiago    | Martínez   |     NULL | SIN NOTAS       |
+|          295 | Victoria    | Parra      |     NULL | SIN NOTAS       |
+|          296 | Esteban     | Medina     |     NULL | SIN NOTAS       |
+|          297 | Natalia     | Romero     |     NULL | SIN NOTAS       |
+|          298 | Camilo      | Gutiérrez  |     NULL | SIN NOTAS       |
+|          299 | Manuela     | López      |     NULL | SIN NOTAS       |
+|          300 | Daniela     | Álvarez    |     NULL | SIN NOTAS       |
+|          301 | Simón       | Medina     |     NULL | SIN NOTAS       |
+|          302 | Juan        | Ortiz      |     NULL | SIN NOTAS       |
+|          303 | Mateo       | Herrera    |     NULL | SIN NOTAS       |
+|          304 | Laura       | Beltrán    |     NULL | SIN NOTAS       |
+|          305 | Mateo       | Suárez     |     NULL | SIN NOTAS       |
+|          306 | Simón       | Romero     |     NULL | SIN NOTAS       |
++--------------+-------------+------------+----------+-----------------+
++--------------+-----------------------+-----------------+------+
+| IdEstudiante | NombreCompleto        | FechaNacimiento | Edad |
++--------------+-----------------------+-----------------+------+
+|           24 | ACOSTA, ALEJANDRA     | 2004-08-05      |   22 |
+|          292 | ACOSTA, EMMANUEL      | 2006-06-27      |   20 |
+|           54 | ACOSTA, GABRIEL       | 2000-03-19      |   26 |
+|          186 | ACOSTA, MIGUEL        | 2006-04-05      |   20 |
+|          156 | ACOSTA, SALOMÉ        | 2004-08-28      |   22 |
+|          131 | ACOSTA, SIMÓN         | 2001-03-04      |   25 |
+|           55 | ÁLVAREZ, ANA          | 2004-10-11      |   22 |
+|           61 | ÁLVAREZ, ANA          | 2006-03-06      |   20 |
+|          174 | ÁLVAREZ, CAROLINA     | 1998-07-28      |   28 |
+|          300 | ÁLVAREZ, DANIELA      | 2004-02-15      |   22 |
+|          205 | ÁLVAREZ, GABRIELA     | 2001-02-25      |   25 |
+|          182 | ÁLVAREZ, JULIANA      | 2004-09-28      |   22 |
+|          278 | ÁLVAREZ, MARIANA      | 2001-12-10      |   24 |
+|           68 | ÁLVAREZ, MATEO        | 2001-01-03      |   25 |
+|          201 | ÁLVAREZ, SARA         | 2003-03-18      |   23 |
+|          230 | ÁLVAREZ, SARA         | 2004-12-02      |   21 |
+|           86 | ÁLVAREZ, SIMÓN        | 2005-07-22      |   21 |
+|          241 | BELTRÁN, ALEJANDRA    | 2006-02-15      |   20 |
+|          304 | BELTRÁN, LAURA        | 2004-02-21      |   22 |
+|           43 | BELTRÁN, THIAGO       | 2003-03-01      |   23 |
+|          181 | BERMÚDEZ, ANGIE       | 2001-01-15      |   25 |
+|           95 | BERMÚDEZ, DIEGO       | 2002-01-14      |   24 |
+|           56 | BERMÚDEZ, LAURA       | 2001-11-23      |   24 |
+|           31 | BERMÚDEZ, SALOMÉ      | 2005-09-16      |   21 |
+|           46 | BERMÚDEZ, SAMUEL      | 2006-05-03      |   20 |
+|          103 | CÁRDENAS, ALEJANDRO   | 2000-11-19      |   25 |
+|           53 | CÁRDENAS, ANDRÉS      | 1999-08-15      |   27 |
+|          159 | CÁRDENAS, ANTONELLA   | 1998-04-26      |   28 |
+|            6 | CÁRDENAS, DANIELA     | 2006-09-21      |   20 |
+|           84 | CÁRDENAS, DIEGO       | 2005-10-21      |   21 |
+|          225 | CÁRDENAS, JULIANA     | 2005-12-08      |   20 |
+|          214 | CÁRDENAS, LUCÍA       | 2002-11-03      |   23 |
+|           12 | CÁRDENAS, MÍA         | 2001-07-09      |   25 |
+|          185 | CÁRDENAS, MÍA         | 2003-11-13      |   22 |
+|           66 | CÁRDENAS, PAULA       | 2006-08-15      |   20 |
+|          178 | CÁRDENAS, SARA        | 2003-06-06      |   23 |
+|          273 | CÁRDENAS, XIMENA      | 2005-02-28      |   21 |
+|           88 | CASTILLO, ANGIE       | 2004-05-27      |   22 |
+|          170 | CASTILLO, CAMILO      | 2005-06-27      |   21 |
+|          133 | CASTILLO, ESTEBAN     | 2002-11-04      |   23 |
+|          240 | CASTILLO, GABRIELA    | 2000-01-07      |   26 |
+|          116 | CASTILLO, JOAQUÍN     | 2000-12-24      |   25 |
+|          270 | CASTILLO, JUAN        | 1998-08-20      |   28 |
+|          155 | CASTILLO, MAXIMILIANO | 2000-06-19      |   26 |
+|          222 | CASTILLO, MIGUEL      | 1998-01-24      |   28 |
+|           80 | CASTILLO, TOMÁS       | 2002-02-01      |   24 |
+|          101 | CASTILLO, VALERIA     | 2000-04-01      |   26 |
+|           59 | CASTRO, ANGIE         | 2005-11-07      |   20 |
+|           89 | CASTRO, DIEGO         | 2004-01-10      |   22 |
+|           93 | CASTRO, LUCÍA         | 1999-03-20      |   27 |
+|           77 | CASTRO, MÍA           | 2003-12-26      |   22 |
+|          249 | CASTRO, ÓSCAR         | 2006-06-08      |   20 |
+|          196 | CASTRO, SANTIAGO      | 1999-06-19      |   27 |
+|           79 | CIFUENTES, ANTONELLA  | 1999-05-11      |   27 |
+|           48 | CIFUENTES, KEVIN      | 2002-09-14      |   24 |
+|          136 | CIFUENTES, LAURA      | 2003-02-03      |   23 |
+|          143 | CIFUENTES, MELISSA    | 2004-04-05      |   22 |
+|           16 | CORTÉS, CRISTIAN      | 2002-01-28      |   24 |
+|           28 | CORTÉS, LUCÍA         | 2006-12-16      |   19 |
+|          282 | CORTÉS, LUCIANA       | 2006-07-07      |   20 |
+|          207 | CORTÉS, NATALIA       | 2004-04-14      |   22 |
+|           78 | CORTÉS, PAULA         | 1999-09-11      |   27 |
+|          245 | CORTÉS, TOMÁS         | 1999-05-07      |   27 |
+|           49 | DÍAZ, ESTEBAN         | 2006-04-13      |   20 |
+|          271 | DÍAZ, FELIPE          | 2004-11-21      |   21 |
+|          121 | DÍAZ, GABRIELA        | 2004-06-18      |   22 |
+|          212 | DÍAZ, MATEO           | 2006-04-12      |   20 |
+|          258 | DÍAZ, MAXIMILIANO     | 2003-03-16      |   23 |
+|          128 | DÍAZ, MIGUEL          | 2000-01-04      |   26 |
+|          129 | FAJARDO, DANIEL       | 1998-06-03      |   28 |
+|          268 | FAJARDO, DANIEL       | 2005-02-03      |   21 |
+|          152 | FAJARDO, JERÓNIMO     | 2006-09-07      |   20 |
+|           47 | FAJARDO, JUAN         | 2000-03-26      |   26 |
+|          267 | FAJARDO, JULIANA      | 2005-03-20      |   21 |
+|           70 | FAJARDO, KEVIN        | 2000-01-12      |   26 |
+|          242 | FAJARDO, LUCÍA        | 1998-06-23      |   28 |
+|           44 | FAJARDO, MARTÍN       | 2005-12-24      |   20 |
+|          280 | FAJARDO, MAXIMILIANO  | 2003-03-26      |   23 |
+|          120 | FAJARDO, SALOMÉ       | 2000-09-04      |   26 |
+|          188 | FAJARDO, SAMUEL       | 1998-11-28      |   27 |
+|          138 | FAJARDO, THIAGO       | 2001-03-11      |   25 |
+|          109 | GARCÍA, DIANA         | 2003-04-18      |   23 |
+|           18 | GARCÍA, GABRIELA      | 2006-08-28      |   20 |
+|          254 | GARCÍA, LUCIANA       | 2002-11-21      |   23 |
+|           29 | GARCÍA, MELISSA       | 2004-04-10      |   22 |
+|          250 | GARCÍA, MIGUEL        | 2005-02-08      |   21 |
+|          112 | GIL, CAMILO           | 2002-04-06      |   24 |
+|          108 | GIL, DAVID            | 2006-03-24      |   20 |
+|           26 | GIL, LAURA            | 2005-12-18      |   20 |
+|          264 | GIL, SIMÓN            | 2000-05-24      |   26 |
+|          204 | GÓMEZ, ANDREA         | 2006-10-16      |   20 |
+|          285 | GÓMEZ, ANGIE          | 2001-03-17      |   25 |
+|          252 | GÓMEZ, GABRIELA       | 2000-03-08      |   26 |
+|            1 | GÓMEZ, LAURA          | 2003-05-14      |   23 |
+|          146 | GÓMEZ, LORENA         | 2002-03-18      |   24 |
+|           11 | GÓMEZ, MATEO          | 1998-11-16      |   27 |
+|          272 | GÓMEZ, SANTIAGO       | 1999-02-08      |   27 |
+|          224 | GUERRERO, IVÁN        | 2000-05-16      |   26 |
+|          169 | GUERRERO, LUCIANA     | 2003-06-20      |   23 |
+|           90 | GUERRERO, MAXIMILIANO | 2002-12-25      |   23 |
+|          298 | GUTIÉRREZ, CAMILO     | 2004-09-07      |   22 |
+|          200 | GUTIÉRREZ, EMILIO     | 2001-04-22      |   25 |
+|           71 | GUTIÉRREZ, IVÁN       | 2003-09-22      |   23 |
+|          236 | GUTIÉRREZ, LUCÍA      | 2005-07-26      |   21 |
+|          198 | GUTIÉRREZ, MARIANA    | 2006-04-28      |   20 |
+|          277 | GUTIÉRREZ, MARTÍN     | 1999-10-18      |   27 |
+|          239 | GUTIÉRREZ, MELISSA    | 2006-05-12      |   20 |
+|          164 | GUTIÉRREZ, MÍA        | 2002-02-19      |   24 |
+|          231 | HERNÁNDEZ, ANA        | 2000-05-08      |   26 |
+|           69 | HERNÁNDEZ, CRISTIAN   | 2003-07-18      |   23 |
+|          111 | HERNÁNDEZ, DIEGO      | 2005-09-26      |   21 |
+|          149 | HERNÁNDEZ, GABRIEL    | 2004-07-01      |   22 |
+|          194 | HERNÁNDEZ, GABRIELA   | 2004-03-11      |   22 |
+|          215 | HERNÁNDEZ, LAURA      | 2003-09-27      |   23 |
+|          255 | HERNÁNDEZ, TOMÁS      | 1999-01-12      |   27 |
+|           14 | HERRERA, JERÓNIMO     | 2003-02-18      |   23 |
+|          303 | HERRERA, MATEO        | 2003-11-05      |   22 |
+|          218 | HERRERA, SEBASTIÁN    | 2006-08-19      |   20 |
+|          183 | JIMÉNEZ, ANA          | 2006-04-26      |   20 |
+|           96 | JIMÉNEZ, CATALINA     | 2003-07-13      |   23 |
+|          166 | JIMÉNEZ, LUCÍA        | 1999-01-09      |   27 |
+|           98 | JIMÉNEZ, VALENTINA    | 2000-09-01      |   26 |
+|          284 | LONDOÑO, ESTEBAN      | 2002-06-28      |   24 |
+|          118 | LONDOÑO, IVÁN         | 2002-10-02      |   24 |
+|          247 | LONDOÑO, NICOLÁS      | 2006-03-18      |   20 |
+|           92 | LÓPEZ, CATALINA       | 2006-06-07      |   20 |
+|          299 | LÓPEZ, MANUELA        | 2006-02-04      |   20 |
+|          117 | LÓPEZ, MATEO          | 2006-04-28      |   20 |
+|          220 | LÓPEZ, MIGUEL         | 2000-06-05      |   26 |
+|           39 | MARTÍNEZ, ANDREA      | 2000-08-01      |   26 |
+|          290 | MARTÍNEZ, CAROLINA    | 2001-12-21      |   24 |
+|          113 | MARTÍNEZ, JERÓNIMO    | 2000-08-01      |   26 |
+|            4 | MARTÍNEZ, JULIÁN      | 2001-08-30      |   25 |
+|            8 | MARTÍNEZ, LUCÍA       | 2006-12-25      |   19 |
+|           63 | MARTÍNEZ, MIGUEL      | 1999-07-10      |   27 |
+|          294 | MARTÍNEZ, SANTIAGO    | 2006-07-13      |   20 |
+|          192 | MARTÍNEZ, SOFÍA       | 2005-09-01      |   21 |
+|          276 | MARTÍNEZ, VICTORIA    | 2005-05-28      |   21 |
+|           13 | MEDINA, DIEGO         | 2004-12-17      |   21 |
+|          296 | MEDINA, ESTEBAN       | 1998-02-08      |   28 |
+|          206 | MEDINA, GABRIELA      | 2000-02-06      |   26 |
+|          153 | MEDINA, MARÍA         | 2003-01-13      |   23 |
+|          142 | MEDINA, MAXIMILIANO   | 2003-07-27      |   23 |
+|           64 | MEDINA, PAULA         | 2000-05-15      |   26 |
+|          301 | MEDINA, SIMÓN         | 2006-11-04      |   19 |
+|           51 | MEDINA, XIMENA        | 2003-01-01      |   23 |
+|           60 | MEJÍA, CAMILO         | 1998-03-21      |   28 |
+|          100 | MEJÍA, EMMANUEL       | 2006-11-18      |   19 |
+|           23 | MEJÍA, ISABELLA       | 2006-11-04      |   19 |
+|          197 | MEJÍA, IVÁN           | 2002-06-25      |   24 |
+|          165 | MEJÍA, JUAN           | 2006-11-19      |   19 |
+|          150 | MEJÍA, LUCÍA          | 2003-11-14      |   22 |
+|          203 | MEJÍA, MANUELA        | 2001-05-21      |   25 |
+|          266 | MEJÍA, PAULA          | 2005-10-04      |   21 |
+|           85 | MEJÍA, SALOMÉ         | 1998-07-11      |   28 |
+|          195 | MEJÍA, SOFÍA          | 2006-01-16      |   20 |
+|           25 | MENDOZA, CAMILO       | 1999-11-23      |   26 |
+|          193 | MENDOZA, CAROLINA     | 2006-06-18      |   20 |
+|          168 | MENDOZA, DANIEL       | 2005-11-22      |   20 |
+|          163 | MENDOZA, LUCIANA      | 2005-04-20      |   21 |
+|          281 | MENDOZA, MATEO        | 2004-03-20      |   22 |
+|          158 | MENDOZA, THIAGO       | 1999-11-28      |   26 |
+|           76 | MORENO, ALEJANDRO     | 2004-03-04      |   22 |
+|           83 | MORENO, DANIELA       | 2006-10-28      |   20 |
+|          237 | MORENO, DANIELA       | 2004-07-01      |   22 |
+|           82 | MORENO, ISABELLA      | 2001-01-10      |   25 |
+|           35 | MORENO, JORGE         | 2005-12-23      |   20 |
+|            7 | MORENO, LORENA        | 2001-10-20      |   25 |
+|          151 | MORENO, LUCIANA       | 2005-11-28      |   20 |
+|          221 | MORENO, MARIANA       | 2004-02-06      |   22 |
+|           50 | MORENO, SANTIAGO      | 2004-02-02      |   22 |
+|          190 | MUÑOZ, ANTONELLA      | 2003-03-15      |   23 |
+|          291 | MUÑOZ, CRISTIAN       | 2006-05-26      |   20 |
+|           72 | MUÑOZ, GABRIEL        | 2001-02-20      |   25 |
+|           45 | MUÑOZ, SAMUEL         | 2001-08-19      |   25 |
+|          217 | NAVARRO, ANTONELLA    | 1998-02-19      |   28 |
+|           15 | NAVARRO, MIGUEL       | 2002-08-05      |   24 |
+|          124 | NAVARRO, MIGUEL       | 2003-03-13      |   23 |
+|          246 | NAVARRO, SANTIAGO     | 1998-08-09      |   28 |
+|          140 | NIÑO, JORGE           | 2005-07-11      |   21 |
+|           37 | NIÑO, MARÍA           | 2005-02-21      |   21 |
+|          175 | NIÑO, NICOLÁS         | 2006-11-18      |   19 |
+|          135 | ORTIZ, ANA            | 2003-11-27      |   22 |
+|           97 | ORTIZ, ESTEBAN        | 2004-11-08      |   21 |
+|          302 | ORTIZ, JUAN           | 2003-05-01      |   23 |
+|          226 | ORTIZ, VALERIA        | 2006-06-14      |   20 |
+|           27 | OSPINA, ALEJANDRO     | 2004-11-10      |   21 |
+|           75 | OSPINA, EMMANUEL      | 2000-02-26      |   26 |
+|          208 | OSPINA, MARIANA       | 2000-11-21      |   25 |
+|           57 | OSPINA, NICOLÁS       | 2004-01-07      |   22 |
+|          179 | OSPINA, NICOLÁS       | 2000-05-28      |   26 |
+|          187 | OSPINA, SIMÓN         | 2000-12-05      |   25 |
+|          253 | OSPINA, TOMÁS         | 2001-09-25      |   25 |
+|          283 | OSPINA, VICTORIA      | 2002-09-18      |   24 |
+|           17 | PARRA, ALEJANDRA      | 2003-08-14      |   23 |
+|          172 | PARRA, CAMILO         | 2002-08-07      |   24 |
+|          235 | PARRA, GABRIEL        | 2001-10-03      |   25 |
+|          295 | PARRA, VICTORIA       | 2001-09-19      |   25 |
+|          144 | PATIÑO, ANDRÉS        | 2000-07-09      |   26 |
+|          125 | PATIÑO, EMILIO        | 1998-10-21      |   28 |
+|          262 | PATIÑO, GABRIELA      | 1998-11-09      |   27 |
+|          233 | PATIÑO, MARÍA         | 1998-06-20      |   28 |
+|          256 | PATIÑO, NICOLÁS       | 2000-10-28      |   26 |
+|           73 | PEÑA, ALEJANDRA       | 2006-10-24      |   20 |
+|          211 | PEÑA, CRISTIAN        | 2003-08-05      |   23 |
+|          274 | PEÑA, ESTEBAN         | 2005-08-24      |   21 |
+|          147 | PEÑA, JERÓNIMO        | 2001-06-05      |   25 |
+|          209 | PEÑA, KEVIN           | 2002-12-12      |   23 |
+|          184 | PEÑA, LORENA          | 2005-03-18      |   21 |
+|          173 | PEÑA, MANUELA         | 2006-12-13      |   19 |
+|          102 | PEÑA, MARIANA         | 2006-08-14      |   20 |
+|          189 | PEÑA, SEBASTIÁN       | 2002-03-05      |   24 |
+|           30 | PEÑA, XIMENA          | 1998-01-05      |   28 |
+|          110 | PEÑA, XIMENA          | 2003-04-12      |   23 |
+|           40 | PÉREZ, GABRIELA       | 2005-10-18      |   21 |
+|          265 | PÉREZ, MIGUEL         | 1998-06-24      |   28 |
+|          269 | PÉREZ, SAMUEL         | 2006-05-05      |   20 |
+|          251 | PÉREZ, SEBASTIÁN      | 2004-07-18      |   22 |
+|          210 | PÉREZ, VALERIA        | 2005-09-15      |   21 |
+|          107 | PÉREZ, XIMENA         | 2001-08-02      |   25 |
+|          229 | QUINTERO, CATALINA    | 2005-09-01      |   21 |
+|          213 | QUINTERO, LAURA       | 1998-12-22      |   27 |
+|          219 | QUINTERO, MATEO       | 2005-10-16      |   21 |
+|          119 | QUINTERO, VALERIA     | 2006-09-26      |   20 |
+|          171 | RAMÍREZ, ALEJANDRO    | 2005-03-01      |   21 |
+|          289 | RAMÍREZ, ANDREA       | 2006-06-18      |   20 |
+|          286 | RAMÍREZ, CAROLINA     | 2001-05-06      |   25 |
+|           34 | RAMÍREZ, EMMANUEL     | 2002-06-15      |   24 |
+|          167 | RAMÍREZ, JUAN         | 2000-09-24      |   26 |
+|           42 | RAMÍREZ, VICTORIA     | 2006-05-22      |   20 |
+|          177 | RAMOS, IVÁN           | 2006-10-11      |   20 |
+|           36 | RAMOS, KEVIN          | 2002-08-06      |   24 |
+|           33 | RAMOS, LAURA          | 2005-07-18      |   21 |
+|          160 | RAMOS, LAURA          | 2002-10-21      |   24 |
+|          243 | RAMOS, LAURA          | 1998-04-21      |   28 |
+|          105 | RAMOS, LORENA         | 2002-06-21      |   24 |
+|          139 | RAMOS, MARÍA          | 2006-06-11      |   20 |
+|          261 | RESTREPO, EMMANUEL    | 2003-09-12      |   23 |
+|           22 | RESTREPO, MARIANA     | 2001-03-27      |   25 |
+|           74 | RESTREPO, NATALIA     | 2002-10-09      |   24 |
+|          279 | RINCÓN, ALEJANDRA     | 2004-04-28      |   22 |
+|          106 | RINCÓN, ANA           | 2003-01-22      |   23 |
+|          293 | RINCÓN, DIEGO         | 2004-09-08      |   22 |
+|          223 | RINCÓN, NICOLÁS       | 2006-02-24      |   20 |
+|            2 | RODRÍGUEZ, ANDRÉS     | 2002-11-02      |   23 |
+|          126 | RODRÍGUEZ, CAMILO     | 2003-09-06      |   23 |
+|           19 | RODRÍGUEZ, DANIELA    | 2006-10-16      |   20 |
+|          287 | RODRÍGUEZ, IVÁN       | 2000-08-13      |   26 |
+|          202 | RODRÍGUEZ, LORENA     | 2004-08-28      |   22 |
+|           87 | ROJAS, CRISTIAN       | 2003-09-22      |   23 |
+|           94 | ROJAS, DANIELA        | 1998-03-17      |   28 |
+|          263 | ROJAS, JULIANA        | 2004-04-10      |   22 |
+|          259 | ROJAS, LUCÍA          | 2000-01-27      |   26 |
+|          145 | ROJAS, LUCIANA        | 2003-05-27      |   23 |
+|           91 | ROJAS, MELISSA        | 2002-07-11      |   24 |
+|           62 | ROMERO, EMMANUEL      | 2004-05-14      |   22 |
+|          104 | ROMERO, GABRIELA      | 2006-01-21      |   20 |
+|          154 | ROMERO, JOAQUÍN       | 1998-05-18      |   28 |
+|          297 | ROMERO, NATALIA       | 2005-10-13      |   21 |
+|           58 | ROMERO, SALOMÉ        | 1998-11-18      |   27 |
+|          306 | ROMERO, SIMÓN         | 1999-02-12      |   27 |
+|          191 | ROMERO, TOMÁS         | 1998-03-22      |   28 |
+|          180 | RUIZ, ANA             | 2004-11-04      |   21 |
+|           67 | RUIZ, DANIELA         | 2006-05-27      |   20 |
+|          114 | RUIZ, DIEGO           | 2004-01-21      |   22 |
+|          248 | RUIZ, JERÓNIMO        | 2006-04-16      |   20 |
+|          127 | RUIZ, JOAQUÍN         | 1998-03-11      |   28 |
+|          216 | RUIZ, KEVIN           | 2006-02-27      |   20 |
+|          232 | RUIZ, LORENA          | 2003-05-25      |   23 |
+|          234 | RUIZ, LORENA          | 2000-09-04      |   26 |
+|            5 | RUIZ, VALENTINA       | 2005-03-09      |   21 |
+|           20 | RUIZ, VALERIA         | 2002-07-19      |   24 |
+|          122 | SALAZAR, ALEJANDRO    | 1998-12-19      |   27 |
+|          130 | SALAZAR, MANUELA      | 2001-09-05      |   25 |
+|          176 | SALAZAR, VALENTINA    | 2005-10-03      |   21 |
+|          275 | SALAZAR, XIMENA       | 2002-08-24      |   24 |
+|           21 | SÁNCHEZ, ANGIE        | 2006-09-26      |   20 |
+|          157 | SÁNCHEZ, CRISTIAN     | 2003-01-02      |   23 |
+|           52 | SÁNCHEZ, DANIEL       | 2003-11-10      |   22 |
+|          134 | SÁNCHEZ, DIEGO        | 2005-02-18      |   21 |
+|          244 | SÁNCHEZ, SALOMÉ       | 1998-05-03      |   28 |
+|          228 | SUÁREZ, ANDRÉS        | 1999-10-16      |   27 |
+|          123 | SUÁREZ, EMMANUEL      | 2000-05-10      |   26 |
+|          238 | SUÁREZ, JULIANA       | 1998-05-25      |   28 |
+|           32 | SUÁREZ, MANUELA       | 2002-12-16      |   23 |
+|          305 | SUÁREZ, MATEO         | 2006-08-11      |   20 |
+|          141 | SUÁREZ, PAULA         | 2005-04-28      |   21 |
+|           38 | TORRES, ANTONELLA     | 2003-02-07      |   23 |
+|            3 | TORRES, CAMILA        | 2004-01-23      |   22 |
+|          288 | TORRES, JERÓNIMO      | 1998-10-10      |   28 |
+|          132 | TORRES, MARTÍN        | 1999-12-03      |   26 |
+|          227 | TORRES, SEBASTIÁN     | 2001-10-06      |   25 |
+|            9 | TORRES, VALENTINA     | 2005-04-01      |   21 |
+|           41 | VARGAS, ANGIE         | 2001-04-04      |   25 |
+|          260 | VARGAS, ESTEBAN       | 2005-11-14      |   20 |
+|          161 | VARGAS, MANUELA       | 2006-12-07      |   19 |
+|          199 | VARGAS, ÓSCAR         | 2004-11-14      |   21 |
+|          115 | VARGAS, PAULA         | 2002-06-18      |   24 |
+|          137 | VARGAS, VALENTINA     | 2005-05-09      |   21 |
+|           10 | VARGAS, VICTORIA      | 1999-05-27      |   27 |
+|          257 | VÉLEZ, ANA            | 2001-08-28      |   25 |
+|           81 | VÉLEZ, JUAN           | 2002-07-01      |   24 |
+|          148 | VÉLEZ, LUCÍA          | 1999-05-10      |   27 |
+|          162 | VÉLEZ, MIGUEL         | 1998-02-05      |   28 |
+|           65 | VÉLEZ, SARA           | 2004-05-15      |   22 |
++--------------+-----------------------+-----------------+------+
 +-------------+---------------------+-----------+----------+
 | IdMatricula | Estudiante          | NotaFinal | Estado   |
 +-------------+---------------------+-----------+----------+
@@ -134,17 +684,17 @@
 |          10 | MARTÍNEZ, JULIÁN    |       2.1 | REPROBADO |
 |          13 | RUIZ, VALENTINA     |      NULL | EN CURSO  |
 +-------------+---------------------+-----------+-----------+
-ERROR 1644 (45000) at line 446: La nota debe estar entre 0.0 y 5.0
-ERROR 1644 (45000) at line 448: La nota debe estar entre 0.0 y 5.0
-ERROR 1644 (45000) at line 451: La nota debe estar entre 0.0 y 5.0
-+----------------------------------------------+
-| resultado_sp                                 |
-+----------------------------------------------+
-| OK: matrícula 112 registrada el 2026-10-28.  |
-+----------------------------------------------+
+ERROR 1644 (45000) at line 2338: La nota debe estar entre 0.0 y 5.0
+ERROR 1644 (45000) at line 2340: La nota debe estar entre 0.0 y 5.0
+ERROR 1644 (45000) at line 2343: La nota debe estar entre 0.0 y 5.0
++-----------------------------------------------+
+| resultado_sp                                  |
++-----------------------------------------------+
+| OK: matrícula 1679 registrada el 2026-10-28.  |
++-----------------------------------------------+
 +-------------+-------------+--------------+---------+--------+----------------+---------------------+
 | IdAuditoria | IdMatricula | IdEstudiante | IdCurso | Accion | Usuario        | FechaHora           |
 +-------------+-------------+--------------+---------+--------+----------------+---------------------+
-|           1 |         111 |            5 |       3 | INSERT | root@localhost | 2026-10-28 17:03:24 |
-|           2 |         112 |            4 |       4 | INSERT | root@localhost | 2026-10-28 17:03:24 |
+|           1 |        1678 |            5 |       3 | INSERT | root@localhost | 2026-10-28 17:07:36 |
+|           2 |        1679 |            4 |       4 | INSERT | root@localhost | 2026-10-28 17:07:36 |
 +-------------+-------------+--------------+---------+--------+----------------+---------------------+

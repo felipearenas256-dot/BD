@@ -197,6 +197,8 @@ details{margin-bottom:10px}
 summary{cursor:pointer;color:var(--mut);font-size:13px}
 pre{background:#0f172a;color:#e2e8f0;padding:12px 14px;border-radius:10px;overflow-x:auto;font-size:13px;margin:6px 0 0;white-space:pre-wrap}
 .two{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px}
+.pager{display:flex;gap:14px;align-items:center;margin-bottom:6px;color:var(--mut)}
+.pager a{color:var(--pri);font-weight:600;text-decoration:none}
 .hint{color:var(--mut);font-size:13px;margin:10px 0 0}
 ul.obj{margin:0;padding-left:18px} ul.obj li{margin:3px 0}
 code{background:#f1f5f9;padding:1px 6px;border-radius:5px;font-size:13px}
@@ -253,7 +255,14 @@ code{background:#f1f5f9;padding:1px 6px;border-radius:5px;font-size:13px}
   <h1>Ver tablas</h1>
   <p class="lead">Contenido actual de cada tabla.</p>
   <div class="tabs"><?php foreach ($tablas as $x): ?><a class="<?= $x === $t ? 'on' : '' ?>" href="?p=tablas&t=<?= $x ?>"><?= $x ?></a><?php endforeach; ?></div>
-  <div class="card"><?= mostrar(run("SELECT * FROM `$t`;"), $t) ?></div>
+  <?php $total = (int) val("SELECT COUNT(*) FROM `$t`"); $por = 100; $pag = max(1, (int)($req['pag'] ?? 1)); $paginas = max(1, (int) ceil($total / $por)); $pag = min($pag, $paginas); $desde = ($pag - 1) * $por; ?>
+  <div class="card">
+    <div class="pager"><b><?= $total ?></b> filas · página <?= $pag ?> de <?= $paginas ?>
+      <?php if ($pag > 1): ?><a href="?p=tablas&t=<?= $t ?>&pag=<?= $pag - 1 ?>">← Anterior</a><?php endif; ?>
+      <?php if ($pag < $paginas): ?><a href="?p=tablas&t=<?= $t ?>&pag=<?= $pag + 1 ?>">Siguiente →</a><?php endif; ?>
+    </div>
+    <?= mostrar(run("SELECT * FROM `$t` LIMIT $por OFFSET $desde;"), $t) ?>
+  </div>
 
 <?php elseif ($p === 'a1'):
   $est = lista('SELECT IdEstudiante, CONCAT(Nombre," ",Apellido) FROM Estudiante ORDER BY IdEstudiante');
@@ -340,7 +349,7 @@ code{background:#f1f5f9;padding:1px 6px;border-radius:5px;font-size:13px}
 <?php elseif ($p === 'a5'):
   $est = lista('SELECT IdEstudiante, CONCAT(Nombre," ",Apellido) FROM Estudiante ORDER BY IdEstudiante');
   $cur = lista('SELECT IdCurso, Nombre FROM Curso ORDER BY IdCurso');
-  $mat = lista('SELECT m.IdMatricula, CONCAT(e.Nombre," · ",c.Nombre," · nota ",IFNULL(m.NotaFinal,"—")) FROM Matricula m JOIN Estudiante e ON e.IdEstudiante=m.IdEstudiante JOIN Curso c ON c.IdCurso=m.IdCurso ORDER BY m.IdMatricula');
+  $mat = lista('SELECT m.IdMatricula, CONCAT(e.Nombre," · ",c.Nombre," · nota ",IFNULL(m.NotaFinal,"—")) FROM Matricula m JOIN Estudiante e ON e.IdEstudiante=m.IdEstudiante JOIN Curso c ON c.IdCurso=m.IdCurso ORDER BY m.IdMatricula LIMIT 60');
   $e = (int)($req['e'] ?? 3); $c = (int)($req['c'] ?? 4); $nota = $req['nota'] ?? '5.5';
   $m = (int)($req['m'] ?? 1); $nota2 = $req['nota2'] ?? '7.0';
   $sqlNota = fn($x) => trim($x) === '' ? 'NULL' : (string)(float)str_replace(',', '.', $x); ?>

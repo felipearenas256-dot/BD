@@ -1,15 +1,15 @@
 +-----------------+-----------------------------+-----------+----------------+---------------------+---------------------+---------------+---------+----------------------+----------------------+--------------------+
 | Db              | Name                        | Type      | Definer        | Modified            | Created             | Security_type | Comment | character_set_client | collation_connection | Database Collation |
 +-----------------+-----------------------------+-----------+----------------+---------------------+---------------------+---------------+---------+----------------------+----------------------+--------------------+
-| universidad_umb | sp_actualizar_estados_curso | PROCEDURE | root@localhost | 2026-10-28 17:03:35 | 2026-10-28 17:03:35 | DEFINER       |         | utf8mb4              | utf8mb4_0900_ai_ci   | utf8mb4_unicode_ci |
-| universidad_umb | sp_clasificar_estudiante    | PROCEDURE | root@localhost | 2026-10-28 17:03:35 | 2026-10-28 17:03:35 | DEFINER       |         | utf8mb4              | utf8mb4_0900_ai_ci   | utf8mb4_unicode_ci |
-| universidad_umb | sp_registrar_matricula      | PROCEDURE | root@localhost | 2026-10-28 17:03:35 | 2026-10-28 17:03:35 | DEFINER       |         | utf8mb4              | utf8mb4_0900_ai_ci   | utf8mb4_unicode_ci |
+| universidad_umb | sp_actualizar_estados_curso | PROCEDURE | root@localhost | 2026-10-28 17:08:05 | 2026-10-28 17:08:05 | DEFINER       |         | utf8mb4              | utf8mb4_0900_ai_ci   | utf8mb4_unicode_ci |
+| universidad_umb | sp_clasificar_estudiante    | PROCEDURE | root@localhost | 2026-10-28 17:08:05 | 2026-10-28 17:08:05 | DEFINER       |         | utf8mb4              | utf8mb4_0900_ai_ci   | utf8mb4_unicode_ci |
+| universidad_umb | sp_registrar_matricula      | PROCEDURE | root@localhost | 2026-10-28 17:08:05 | 2026-10-28 17:08:05 | DEFINER       |         | utf8mb4              | utf8mb4_0900_ai_ci   | utf8mb4_unicode_ci |
 +-----------------+-----------------------------+-----------+----------------+---------------------+---------------------+---------------+---------+----------------------+----------------------+--------------------+
 +-----------------+---------------------+----------+----------------+---------------------+---------------------+---------------+---------+----------------------+----------------------+--------------------+
 | Db              | Name                | Type     | Definer        | Modified            | Created             | Security_type | Comment | character_set_client | collation_connection | Database Collation |
 +-----------------+---------------------+----------+----------------+---------------------+---------------------+---------------+---------+----------------------+----------------------+--------------------+
-| universidad_umb | fn_calcular_edad    | FUNCTION | root@localhost | 2026-10-28 17:03:35 | 2026-10-28 17:03:35 | DEFINER       |         | utf8mb4              | utf8mb4_0900_ai_ci   | utf8mb4_unicode_ci |
-| universidad_umb | fn_formatear_nombre | FUNCTION | root@localhost | 2026-10-28 17:03:35 | 2026-10-28 17:03:35 | DEFINER       |         | utf8mb4              | utf8mb4_0900_ai_ci   | utf8mb4_unicode_ci |
+| universidad_umb | fn_calcular_edad    | FUNCTION | root@localhost | 2026-10-28 17:08:05 | 2026-10-28 17:08:05 | DEFINER       |         | utf8mb4              | utf8mb4_0900_ai_ci   | utf8mb4_unicode_ci |
+| universidad_umb | fn_formatear_nombre | FUNCTION | root@localhost | 2026-10-28 17:08:05 | 2026-10-28 17:08:05 | DEFINER       |         | utf8mb4              | utf8mb4_0900_ai_ci   | utf8mb4_unicode_ci |
 +-----------------+---------------------+----------+----------------+---------------------+---------------------+---------------+---------+----------------------+----------------------+--------------------+
 +-------------------------------+--------+-----------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------+------------------------+-----------------------------------------------------------------------------------------------------------------------+----------------+----------------------+----------------------+--------------------+
 | Trigger                       | Event  | Table     | Statement                                                                                                                                                                                                       | Timing | Created                | sql_mode                                                                                                              | Definer        | character_set_client | collation_connection | Database Collation |
@@ -19,23 +19,23 @@
         SIGNAL SQLSTATE '45000'
             SET MESSAGE_TEXT = 'La nota debe estar entre 0.0 y 5.0';
     END IF;
-END | BEFORE | 2026-10-28 17:03:35.84 | ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION | root@localhost | utf8mb4              | utf8mb4_0900_ai_ci   | utf8mb4_unicode_ci |
+END | BEFORE | 2026-10-28 17:08:05.31 | ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION | root@localhost | utf8mb4              | utf8mb4_0900_ai_ci   | utf8mb4_unicode_ci |
 | trg_matricula_auditoria       | INSERT | Matricula | BEGIN
     INSERT INTO Auditoria_Matricula (IdMatricula, IdEstudiante, IdCurso, Accion, Usuario, FechaHora)
     VALUES (NEW.IdMatricula, NEW.IdEstudiante, NEW.IdCurso, 'INSERT', CURRENT_USER(), NOW());
-END    | AFTER  | 2026-10-28 17:03:35.84 | ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION | root@localhost | utf8mb4              | utf8mb4_0900_ai_ci   | utf8mb4_unicode_ci |
+END    | AFTER  | 2026-10-28 17:08:05.32 | ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION | root@localhost | utf8mb4              | utf8mb4_0900_ai_ci   | utf8mb4_unicode_ci |
 | trg_matricula_valida_nota_upd | UPDATE | Matricula | BEGIN
     IF NEW.NotaFinal IS NOT NULL AND (NEW.NotaFinal < 0 OR NEW.NotaFinal > 5.0) THEN
         SIGNAL SQLSTATE '45000'
             SET MESSAGE_TEXT = 'La nota debe estar entre 0.0 y 5.0';
     END IF;
-END | BEFORE | 2026-10-28 17:03:35.84 | ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION | root@localhost | utf8mb4              | utf8mb4_0900_ai_ci   | utf8mb4_unicode_ci |
+END | BEFORE | 2026-10-28 17:08:05.32 | ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION | root@localhost | utf8mb4              | utf8mb4_0900_ai_ci   | utf8mb4_unicode_ci |
 +-------------------------------+--------+-----------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------+------------------------+-----------------------------------------------------------------------------------------------------------------------+----------------+----------------------+----------------------+--------------------+
-+----------------------------------------------+
-| resultado                                    |
-+----------------------------------------------+
-| OK: matrícula 113 registrada el 2026-10-28.  |
-+----------------------------------------------+
++-----------------------------------------------+
+| resultado                                     |
++-----------------------------------------------+
+| OK: matrícula 1680 registrada el 2026-10-28.  |
++-----------------------------------------------+
 +---------------------------------------------------------+
 | resultado                                               |
 +---------------------------------------------------------+
@@ -44,7 +44,7 @@ END | BEFORE | 2026-10-28 17:03:35.84 | ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,N
 +-------------+--------------+---------+----------------+-----------+----------+
 | IdMatricula | IdEstudiante | IdCurso | FechaMatricula | NotaFinal | Estado   |
 +-------------+--------------+---------+----------------+-----------+----------+
-|         113 |            1 |       4 | 2026-10-28     |      NULL | EN CURSO |
+|        1680 |            1 |       4 | 2026-10-28     |      NULL | EN CURSO |
 +-------------+--------------+---------+----------------+-----------+----------+
 +----------------+---------------------+
 | promedio_antes | clasificacion_antes |
@@ -67,65 +67,284 @@ ERROR 1644 (45000) at line 27: El estudiante no existe.
 +------+-------------------+
 |   26 | LÓPEZ, MARÍA      |
 +------+-------------------+
-+----------------------+------+
-| estudiante           | edad |
-+----------------------+------+
-| MORENO, MATEO        |   26 |
-| CASTILLO, ALEJANDRO  |   26 |
-| MARTÍNEZ, JULIÁN     |   25 |
-| MEDINA, DIEGO        |   25 |
-| GUTIÉRREZ, TOMÁS     |   25 |
-| PÉREZ, SANTIAGO      |   24 |
-| RAMÍREZ, SEBASTIÁN   |   24 |
-| HERRERA, NICOLÁS     |   24 |
-| JIMÉNEZ, SAMUEL      |   24 |
-| SUÁREZ, EMILIO       |   24 |
-| MENDOZA, DAVID       |   24 |
-| NAVARRO, FELIPE      |   24 |
-| QUINTERO, ESTEBAN    |   23 |
-| GÓMEZ, LAURA         |   23 |
-| GUERRERO, LUCIANA    |   23 |
-| SALAZAR, CAROLINA    |   23 |
-| ÁLVAREZ, NATALIA     |   23 |
-| VARGAS, GABRIELA     |   23 |
-| LÓPEZ, MARIANA       |   23 |
-| RODRÍGUEZ, ANDRÉS    |   23 |
-+----------------------+------+
-+-------------+---------------------+-----------+----------+
-| IdMatricula | estudiante          | NotaFinal | Estado   |
-+-------------+---------------------+-----------+----------+
-|           2 | GÓMEZ, LAURA        |       4.4 | EN CURSO |
-|           5 | RODRÍGUEZ, ANDRÉS   |       3.9 | EN CURSO |
-|           8 | TORRES, CAMILA      |       3.5 | EN CURSO |
-|          11 | MARTÍNEZ, JULIÁN    |       4.5 | EN CURSO |
-|          36 | MORENO, MATEO       |       4.4 | EN CURSO |
-|          45 | JIMÉNEZ, SAMUEL     |       3.5 | EN CURSO |
-|          89 | CÁRDENAS, MARTÍN    |       3.8 | EN CURSO |
-|         110 | RUIZ, VALENTINA     |      NULL | EN CURSO |
-+-------------+---------------------+-----------+----------+
++-----------------------+------+
+| estudiante            | edad |
++-----------------------+------+
+| PEÑA, XIMENA          |   28 |
+| MEJÍA, CAMILO         |   28 |
+| MEJÍA, SALOMÉ         |   28 |
+| ROJAS, DANIELA        |   28 |
+| PATIÑO, EMILIO        |   28 |
+| RUIZ, JOAQUÍN         |   28 |
+| FAJARDO, DANIEL       |   28 |
+| ROMERO, JOAQUÍN       |   28 |
+| CÁRDENAS, ANTONELLA   |   28 |
+| VÉLEZ, MIGUEL         |   28 |
+| ÁLVAREZ, CAROLINA     |   28 |
+| ROMERO, TOMÁS         |   28 |
+| NAVARRO, ANTONELLA    |   28 |
+| CASTILLO, MIGUEL      |   28 |
+| PATIÑO, MARÍA         |   28 |
+| SUÁREZ, JULIANA       |   28 |
+| FAJARDO, LUCÍA        |   28 |
+| RAMOS, LAURA          |   28 |
+| SÁNCHEZ, SALOMÉ       |   28 |
+| NAVARRO, SANTIAGO     |   28 |
+| PÉREZ, MIGUEL         |   28 |
+| CASTILLO, JUAN        |   28 |
+| TORRES, JERÓNIMO      |   28 |
+| MEDINA, ESTEBAN       |   28 |
+| VARGAS, VICTORIA      |   27 |
+| GÓMEZ, MATEO          |   27 |
+| CÁRDENAS, ANDRÉS      |   27 |
+| ROMERO, SALOMÉ        |   27 |
+| MARTÍNEZ, MIGUEL      |   27 |
+| CORTÉS, PAULA         |   27 |
+| CIFUENTES, ANTONELLA  |   27 |
+| CASTRO, LUCÍA         |   27 |
+| SALAZAR, ALEJANDRO    |   27 |
+| VÉLEZ, LUCÍA          |   27 |
+| JIMÉNEZ, LUCÍA        |   27 |
+| FAJARDO, SAMUEL       |   27 |
+| CASTRO, SANTIAGO      |   27 |
+| QUINTERO, LAURA       |   27 |
+| SUÁREZ, ANDRÉS        |   27 |
+| CORTÉS, TOMÁS         |   27 |
+| HERNÁNDEZ, TOMÁS      |   27 |
+| PATIÑO, GABRIELA      |   27 |
+| GÓMEZ, SANTIAGO       |   27 |
+| GUTIÉRREZ, MARTÍN     |   27 |
+| ROMERO, SIMÓN         |   27 |
+| MENDOZA, CAMILO       |   26 |
+| MARTÍNEZ, ANDREA      |   26 |
+| FAJARDO, JUAN         |   26 |
+| ACOSTA, GABRIEL       |   26 |
+| MEDINA, PAULA         |   26 |
+| FAJARDO, KEVIN        |   26 |
+| OSPINA, EMMANUEL      |   26 |
+| JIMÉNEZ, VALENTINA    |   26 |
+| CASTILLO, VALERIA     |   26 |
+| MARTÍNEZ, JERÓNIMO    |   26 |
+| FAJARDO, SALOMÉ       |   26 |
+| SUÁREZ, EMMANUEL      |   26 |
+| DÍAZ, MIGUEL          |   26 |
+| TORRES, MARTÍN        |   26 |
+| PATIÑO, ANDRÉS        |   26 |
+| CASTILLO, MAXIMILIANO |   26 |
+| MENDOZA, THIAGO       |   26 |
+| RAMÍREZ, JUAN         |   26 |
+| OSPINA, NICOLÁS       |   26 |
+| MEDINA, GABRIELA      |   26 |
+| LÓPEZ, MIGUEL         |   26 |
+| GUERRERO, IVÁN        |   26 |
+| HERNÁNDEZ, ANA        |   26 |
+| RUIZ, LORENA          |   26 |
+| CASTILLO, GABRIELA    |   26 |
+| GÓMEZ, GABRIELA       |   26 |
+| PATIÑO, NICOLÁS       |   26 |
+| ROJAS, LUCÍA          |   26 |
+| GIL, SIMÓN            |   26 |
+| RODRÍGUEZ, IVÁN       |   26 |
+| MARTÍNEZ, JULIÁN      |   25 |
+| MORENO, LORENA        |   25 |
+| CÁRDENAS, MÍA         |   25 |
+| RESTREPO, MARIANA     |   25 |
+| VARGAS, ANGIE         |   25 |
+| MUÑOZ, SAMUEL         |   25 |
+| ÁLVAREZ, MATEO        |   25 |
+| MUÑOZ, GABRIEL        |   25 |
+| MORENO, ISABELLA      |   25 |
+| CÁRDENAS, ALEJANDRO   |   25 |
+| PÉREZ, XIMENA         |   25 |
+| CASTILLO, JOAQUÍN     |   25 |
+| SALAZAR, MANUELA      |   25 |
+| ACOSTA, SIMÓN         |   25 |
+| FAJARDO, THIAGO       |   25 |
+| PEÑA, JERÓNIMO        |   25 |
+| BERMÚDEZ, ANGIE       |   25 |
+| OSPINA, SIMÓN         |   25 |
+| GUTIÉRREZ, EMILIO     |   25 |
+| MEJÍA, MANUELA        |   25 |
+| ÁLVAREZ, GABRIELA     |   25 |
+| OSPINA, MARIANA       |   25 |
+| TORRES, SEBASTIÁN     |   25 |
+| PARRA, GABRIEL        |   25 |
+| OSPINA, TOMÁS         |   25 |
+| VÉLEZ, ANA            |   25 |
+| GÓMEZ, ANGIE          |   25 |
+| RAMÍREZ, CAROLINA     |   25 |
+| PARRA, VICTORIA       |   25 |
+| NAVARRO, MIGUEL       |   24 |
+| CORTÉS, CRISTIAN      |   24 |
+| RUIZ, VALERIA         |   24 |
+| RAMÍREZ, EMMANUEL     |   24 |
+| RAMOS, KEVIN          |   24 |
+| CIFUENTES, KEVIN      |   24 |
+| BERMÚDEZ, LAURA       |   24 |
+| RESTREPO, NATALIA     |   24 |
+| CASTILLO, TOMÁS       |   24 |
+| VÉLEZ, JUAN           |   24 |
+| ROJAS, MELISSA        |   24 |
+| BERMÚDEZ, DIEGO       |   24 |
+| RAMOS, LORENA         |   24 |
+| GIL, CAMILO           |   24 |
+| VARGAS, PAULA         |   24 |
+| LONDOÑO, IVÁN         |   24 |
+| GÓMEZ, LORENA         |   24 |
+| RAMOS, LAURA          |   24 |
+| GUTIÉRREZ, MÍA        |   24 |
+| PARRA, CAMILO         |   24 |
+| PEÑA, SEBASTIÁN       |   24 |
+| MEJÍA, IVÁN           |   24 |
+| SALAZAR, XIMENA       |   24 |
+| ÁLVAREZ, MARIANA      |   24 |
+| OSPINA, VICTORIA      |   24 |
+| LONDOÑO, ESTEBAN      |   24 |
+| MARTÍNEZ, CAROLINA    |   24 |
+| GÓMEZ, LAURA          |   23 |
+| RODRÍGUEZ, ANDRÉS     |   23 |
+| HERRERA, JERÓNIMO     |   23 |
+| PARRA, ALEJANDRA      |   23 |
+| SUÁREZ, MANUELA       |   23 |
+| TORRES, ANTONELLA     |   23 |
+| BELTRÁN, THIAGO       |   23 |
+| MEDINA, XIMENA        |   23 |
+| HERNÁNDEZ, CRISTIAN   |   23 |
+| GUTIÉRREZ, IVÁN       |   23 |
+| ROJAS, CRISTIAN       |   23 |
+| GUERRERO, MAXIMILIANO |   23 |
+| JIMÉNEZ, CATALINA     |   23 |
+| RINCÓN, ANA           |   23 |
+| GARCÍA, DIANA         |   23 |
+| PEÑA, XIMENA          |   23 |
+| NAVARRO, MIGUEL       |   23 |
+| RODRÍGUEZ, CAMILO     |   23 |
+| CASTILLO, ESTEBAN     |   23 |
+| CIFUENTES, LAURA      |   23 |
+| MEDINA, MAXIMILIANO   |   23 |
+| ROJAS, LUCIANA        |   23 |
+| MEDINA, MARÍA         |   23 |
+| SÁNCHEZ, CRISTIAN     |   23 |
+| GUERRERO, LUCIANA     |   23 |
+| CÁRDENAS, SARA        |   23 |
+| MUÑOZ, ANTONELLA      |   23 |
+| ÁLVAREZ, SARA         |   23 |
+| PEÑA, KEVIN           |   23 |
+| PEÑA, CRISTIAN        |   23 |
+| CÁRDENAS, LUCÍA       |   23 |
+| HERNÁNDEZ, LAURA      |   23 |
+| RUIZ, LORENA          |   23 |
+| GARCÍA, LUCIANA       |   23 |
+| DÍAZ, MAXIMILIANO     |   23 |
+| RESTREPO, EMMANUEL    |   23 |
+| FAJARDO, MAXIMILIANO  |   23 |
+| ORTIZ, JUAN           |   23 |
++-----------------------+------+
++-------------+----------------------+-----------+----------+
+| IdMatricula | estudiante           | NotaFinal | Estado   |
++-------------+----------------------+-----------+----------+
+|           2 | GÓMEZ, LAURA         |       4.4 | EN CURSO |
+|           5 | RODRÍGUEZ, ANDRÉS    |       3.9 | EN CURSO |
+|           8 | TORRES, CAMILA       |       3.5 | EN CURSO |
+|          11 | MARTÍNEZ, JULIÁN     |       4.5 | EN CURSO |
+|          19 | MORENO, LORENA       |       4.4 | EN CURSO |
+|          68 | PARRA, ALEJANDRA     |       4.8 | EN CURSO |
+|          80 | RODRÍGUEZ, DANIELA   |      NULL | EN CURSO |
+|         100 | MEJÍA, ISABELLA      |       4.6 | EN CURSO |
+|         117 | GIL, LAURA           |       5.0 | EN CURSO |
+|         171 | MORENO, JORGE        |       4.6 | EN CURSO |
+|         183 | NIÑO, MARÍA          |       3.7 | EN CURSO |
+|         195 | MARTÍNEZ, ANDREA     |      NULL | EN CURSO |
+|         224 | FAJARDO, MARTÍN      |      NULL | EN CURSO |
+|         241 | FAJARDO, JUAN        |       4.7 | EN CURSO |
+|         327 | MARTÍNEZ, MIGUEL     |       2.1 | EN CURSO |
+|         338 | VÉLEZ, SARA          |      NULL | EN CURSO |
+|         360 | HERNÁNDEZ, CRISTIAN  |       3.6 | EN CURSO |
+|         434 | MORENO, DANIELA      |       3.6 | EN CURSO |
+|         448 | MEJÍA, SALOMÉ        |       4.3 | EN CURSO |
+|         555 | PÉREZ, XIMENA        |      NULL | EN CURSO |
+|         591 | MARTÍNEZ, JERÓNIMO   |       4.6 | EN CURSO |
+|         610 | CASTILLO, JOAQUÍN    |       3.2 | EN CURSO |
+|         627 | QUINTERO, VALERIA    |       4.8 | EN CURSO |
+|         645 | SALAZAR, ALEJANDRO   |       2.9 | EN CURSO |
+|         668 | RODRÍGUEZ, CAMILO    |       4.2 | EN CURSO |
+|         718 | ORTIZ, ANA           |       3.2 | EN CURSO |
+|         972 | RUIZ, ANA            |       4.6 | EN CURSO |
+|        1101 | GÓMEZ, ANDREA        |       4.3 | EN CURSO |
+|        1107 | ÁLVAREZ, GABRIELA    |       4.0 | EN CURSO |
+|        1156 | QUINTERO, LAURA      |       3.3 | EN CURSO |
+|        1163 | CÁRDENAS, LUCÍA      |       4.7 | EN CURSO |
+|        1226 | CÁRDENAS, JULIANA    |       3.1 | EN CURSO |
+|        1243 | QUINTERO, CATALINA   |       3.1 | EN CURSO |
+|        1263 | RUIZ, LORENA         |       4.0 | EN CURSO |
+|        1413 | ROJAS, LUCÍA         |       3.9 | EN CURSO |
+|        1423 | RESTREPO, EMMANUEL   |       3.2 | EN CURSO |
+|        1435 | ROJAS, JULIANA       |       3.7 | EN CURSO |
+|        1446 | PÉREZ, MIGUEL        |       5.0 | EN CURSO |
+|        1451 | MEJÍA, PAULA         |       4.6 | EN CURSO |
+|        1489 | CÁRDENAS, XIMENA     |       4.6 | EN CURSO |
+|        1524 | RINCÓN, ALEJANDRA    |      NULL | EN CURSO |
+|        1603 | RINCÓN, DIEGO        |       4.8 | EN CURSO |
+|        1677 | RUIZ, VALENTINA      |      NULL | EN CURSO |
++-------------+----------------------+-----------+----------+
 +-----------------------+
 | matriculas_procesadas |
 +-----------------------+
-|                     8 |
+|                    43 |
 +-----------------------+
-+-------------+---------------------+-----------+----------+
-| IdMatricula | estudiante          | NotaFinal | Estado   |
-+-------------+---------------------+-----------+----------+
-|           2 | GÓMEZ, LAURA        |       4.4 | APROBADO |
-|           5 | RODRÍGUEZ, ANDRÉS   |       3.9 | APROBADO |
-|           8 | TORRES, CAMILA      |       3.5 | APROBADO |
-|          11 | MARTÍNEZ, JULIÁN    |       4.5 | APROBADO |
-|          36 | MORENO, MATEO       |       4.4 | APROBADO |
-|          45 | JIMÉNEZ, SAMUEL     |       3.5 | APROBADO |
-|          89 | CÁRDENAS, MARTÍN    |       3.8 | APROBADO |
-|         110 | RUIZ, VALENTINA     |      NULL | EN CURSO |
-+-------------+---------------------+-----------+----------+
++-------------+----------------------+-----------+-----------+
+| IdMatricula | estudiante           | NotaFinal | Estado    |
++-------------+----------------------+-----------+-----------+
+|           2 | GÓMEZ, LAURA         |       4.4 | APROBADO  |
+|           5 | RODRÍGUEZ, ANDRÉS    |       3.9 | APROBADO  |
+|           8 | TORRES, CAMILA       |       3.5 | APROBADO  |
+|          11 | MARTÍNEZ, JULIÁN     |       4.5 | APROBADO  |
+|          19 | MORENO, LORENA       |       4.4 | APROBADO  |
+|          68 | PARRA, ALEJANDRA     |       4.8 | APROBADO  |
+|          80 | RODRÍGUEZ, DANIELA   |      NULL | EN CURSO  |
+|         100 | MEJÍA, ISABELLA      |       4.6 | APROBADO  |
+|         117 | GIL, LAURA           |       5.0 | APROBADO  |
+|         171 | MORENO, JORGE        |       4.6 | APROBADO  |
+|         183 | NIÑO, MARÍA          |       3.7 | APROBADO  |
+|         195 | MARTÍNEZ, ANDREA     |      NULL | EN CURSO  |
+|         224 | FAJARDO, MARTÍN      |      NULL | EN CURSO  |
+|         241 | FAJARDO, JUAN        |       4.7 | APROBADO  |
+|         327 | MARTÍNEZ, MIGUEL     |       2.1 | REPROBADO |
+|         338 | VÉLEZ, SARA          |      NULL | EN CURSO  |
+|         360 | HERNÁNDEZ, CRISTIAN  |       3.6 | APROBADO  |
+|         434 | MORENO, DANIELA      |       3.6 | APROBADO  |
+|         448 | MEJÍA, SALOMÉ        |       4.3 | APROBADO  |
+|         555 | PÉREZ, XIMENA        |      NULL | EN CURSO  |
+|         591 | MARTÍNEZ, JERÓNIMO   |       4.6 | APROBADO  |
+|         610 | CASTILLO, JOAQUÍN    |       3.2 | APROBADO  |
+|         627 | QUINTERO, VALERIA    |       4.8 | APROBADO  |
+|         645 | SALAZAR, ALEJANDRO   |       2.9 | REPROBADO |
+|         668 | RODRÍGUEZ, CAMILO    |       4.2 | APROBADO  |
+|         718 | ORTIZ, ANA           |       3.2 | APROBADO  |
+|         972 | RUIZ, ANA            |       4.6 | APROBADO  |
+|        1101 | GÓMEZ, ANDREA        |       4.3 | APROBADO  |
+|        1107 | ÁLVAREZ, GABRIELA    |       4.0 | APROBADO  |
+|        1156 | QUINTERO, LAURA      |       3.3 | APROBADO  |
+|        1163 | CÁRDENAS, LUCÍA      |       4.7 | APROBADO  |
+|        1226 | CÁRDENAS, JULIANA    |       3.1 | APROBADO  |
+|        1243 | QUINTERO, CATALINA   |       3.1 | APROBADO  |
+|        1263 | RUIZ, LORENA         |       4.0 | APROBADO  |
+|        1413 | ROJAS, LUCÍA         |       3.9 | APROBADO  |
+|        1423 | RESTREPO, EMMANUEL   |       3.2 | APROBADO  |
+|        1435 | ROJAS, JULIANA       |       3.7 | APROBADO  |
+|        1446 | PÉREZ, MIGUEL        |       5.0 | APROBADO  |
+|        1451 | MEJÍA, PAULA         |       4.6 | APROBADO  |
+|        1489 | CÁRDENAS, XIMENA     |       4.6 | APROBADO  |
+|        1524 | RINCÓN, ALEJANDRA    |      NULL | EN CURSO  |
+|        1603 | RINCÓN, DIEGO        |       4.8 | APROBADO  |
+|        1677 | RUIZ, VALENTINA      |      NULL | EN CURSO  |
++-------------+----------------------+-----------+-----------+
 +-----------+----------+
 | Estado    | cantidad |
 +-----------+----------+
-| APROBADO  |       19 |
-| REPROBADO |        4 |
-| EN CURSO  |       90 |
+| APROBADO  |       68 |
+| REPROBADO |       10 |
+| EN CURSO  |     1602 |
 +-----------+----------+
 ERROR 1644 (45000) at line 55: La nota debe estar entre 0.0 y 5.0
 ERROR 1644 (45000) at line 57: La nota debe estar entre 0.0 y 5.0
@@ -137,8 +356,8 @@ ERROR 1644 (45000) at line 57: La nota debe estar entre 0.0 y 5.0
 +-------------+-------------+---------------------+-------------------------+--------+----------------+---------------------+
 | IdAuditoria | IdMatricula | estudiante          | curso                   | Accion | Usuario        | FechaHora           |
 +-------------+-------------+---------------------+-------------------------+--------+----------------+---------------------+
-|           1 |         111 | RUIZ, VALENTINA     | Estructuras de Datos    | INSERT | root@localhost | 2026-10-28 17:03:35 |
-|           2 |         112 | MARTÍNEZ, JULIÁN    | Ingeniería de Software  | INSERT | root@localhost | 2026-10-28 17:03:35 |
-|           3 |         113 | GÓMEZ, LAURA        | Ingeniería de Software  | INSERT | root@localhost | 2026-10-28 17:03:35 |
-|           4 |         114 | RODRÍGUEZ, ANDRÉS   | Ingeniería de Software  | INSERT | root@localhost | 2026-10-28 17:03:35 |
+|           1 |        1678 | RUIZ, VALENTINA     | Estructuras de Datos    | INSERT | root@localhost | 2026-10-28 17:08:05 |
+|           2 |        1679 | MARTÍNEZ, JULIÁN    | Ingeniería de Software  | INSERT | root@localhost | 2026-10-28 17:08:05 |
+|           3 |        1680 | GÓMEZ, LAURA        | Ingeniería de Software  | INSERT | root@localhost | 2026-10-28 17:08:05 |
+|           4 |        1681 | RODRÍGUEZ, ANDRÉS   | Ingeniería de Software  | INSERT | root@localhost | 2026-10-28 17:08:05 |
 +-------------+-------------+---------------------+-------------------------+--------+----------------+---------------------+

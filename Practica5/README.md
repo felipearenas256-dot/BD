@@ -9,6 +9,7 @@ SGBD: MySQL 8.0 (probado en 8.0.46)
 | `ejecutar_p5.sh` | Inicia MySQL en Codespaces y ejecuta `practica5.sql` |
 | `ver_tablas.sh` | Abre el **panel web** de la práctica en el puerto 8080 |
 | `panel/` | Código del panel (PHP) |
+| `datos_ampliados.sql` | Solo los datos extra (ya incluidos en `practica5.sql`) |
 | `consultas_demo_p5.sql` | Consultas adicionales para demostrar cada actividad en clase |
 | `salida_practica5.txt` | Resultado de ejecutar `practica5.sql` |
 | `salida_demo_p5.txt` | Resultado de ejecutar `consultas_demo_p5.sql` |
@@ -51,11 +52,11 @@ Los `ERROR 1644 (45000): La nota debe estar entre 0.0 y 5.0` son **esperados**: 
 
 | Tabla | Filas |
 |---|---|
-| Estudiante | 30 (los 5 originales de la guía + 25 nuevos) |
-| Curso | 15 (4 originales + 11 nuevos) |
-| Matricula | 109 iniciales (13 originales + 96 nuevas) |
+| Estudiante | 305 (los 5 originales de la guía + 300 nuevos; el id 99 se deja libre a propósito) |
+| Curso | 40 (4 originales + 36 nuevos) |
+| Matricula | 1676 iniciales (13 originales + 1663 nuevas) |
 
-Los registros originales de la guía (estudiantes 1–5, cursos 1–4 y sus 13 matrículas) no cambian, por eso las pruebas de las actividades dan los mismos resultados del informe. Al clasificar a los 30 estudiantes salen 5 EXCELENTE, 8 BUENO, 9 APROBADO, 6 REPROBADO y 2 SIN NOTAS.
+Los registros originales de la guía (estudiantes 1–5, cursos 1–4 y sus 13 matrículas) no cambian, y el estudiante 99 no existe, por eso las pruebas de las actividades dan los mismos resultados del informe. Al clasificar a todos salen casos de las 5 categorías. Los datos extra también están por separado en `datos_ampliados.sql`.
 
 ## Objetos creados
 
@@ -74,7 +75,7 @@ Los registros originales de la guía (estudiantes 1–5, cursos 1–4 y sus 13 m
 
 | Actividad | Prueba | Resultado |
 |---|---|---|
-| 1 | `CALL sp_registrar_matricula(5, 2, @msg)` | `OK: matrícula 110 registrada …` |
+| 1 | `CALL sp_registrar_matricula(5, 2, @msg)` | `OK: matrícula 1677 registrada …` |
 | 1 | Estudiante 99 / curso 99 / duplicado | Mensajes `ERROR: …` en `@msg` |
 | 2 | Estudiantes 1–5 | EXCELENTE 4.60 · BUENO 4.07 · APROBADO 3.20 · REPROBADO 2.63 · SIN NOTAS |
 | 3 | `SELECT` con las UDF | `GÓMEZ, LAURA` 23 años, etc. |
