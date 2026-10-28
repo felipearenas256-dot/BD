@@ -47,6 +47,16 @@ Los `ERROR 1644 (45000): La nota debe estar entre 0.0 y 5.0` son **esperados**: 
 
 > ⚠️ `practica5.sql` borra y recrea `universidad_umb`. Si luego quieres volver a demostrar la Práctica 4, vuelve a ejecutar su `ejecutar.sh`.
 
+## Datos de prueba
+
+| Tabla | Filas |
+|---|---|
+| Estudiante | 30 (los 5 originales de la guía + 25 nuevos) |
+| Curso | 15 (4 originales + 11 nuevos) |
+| Matricula | 109 iniciales (13 originales + 96 nuevas) |
+
+Los registros originales de la guía (estudiantes 1–5, cursos 1–4 y sus 13 matrículas) no cambian, por eso las pruebas de las actividades dan los mismos resultados del informe. Al clasificar a los 30 estudiantes salen 5 EXCELENTE, 8 BUENO, 9 APROBADO, 6 REPROBADO y 2 SIN NOTAS.
+
 ## Objetos creados
 
 | Tipo | Nombre | Qué hace |
@@ -64,7 +74,7 @@ Los `ERROR 1644 (45000): La nota debe estar entre 0.0 y 5.0` son **esperados**: 
 
 | Actividad | Prueba | Resultado |
 |---|---|---|
-| 1 | `CALL sp_registrar_matricula(5, 2, @msg)` | `OK: matrícula 14 registrada …` |
+| 1 | `CALL sp_registrar_matricula(5, 2, @msg)` | `OK: matrícula 110 registrada …` |
 | 1 | Estudiante 99 / curso 99 / duplicado | Mensajes `ERROR: …` en `@msg` |
 | 2 | Estudiantes 1–5 | EXCELENTE 4.60 · BUENO 4.07 · APROBADO 3.20 · REPROBADO 2.63 · SIN NOTAS |
 | 3 | `SELECT` con las UDF | `GÓMEZ, LAURA` 23 años, etc. |

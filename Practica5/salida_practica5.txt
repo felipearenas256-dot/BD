@@ -1,8 +1,8 @@
-+---------------------------------------------+
-| caso_valido                                 |
-+---------------------------------------------+
-| OK: matrícula 14 registrada el 2026-10-28.  |
-+---------------------------------------------+
++----------------------------------------------+
+| caso_valido                                  |
++----------------------------------------------+
+| OK: matrícula 110 registrada el 2026-10-28.  |
++----------------------------------------------+
 +------------------------------------+
 | estudiante_inexistente             |
 +------------------------------------+
@@ -43,24 +43,74 @@
 +----+----------+---------------+
 |  5 |     NULL | SIN NOTAS     |
 +----+----------+---------------+
-+--------------+-----------+------------+----------+-----------------+
-| IdEstudiante | Nombre    | Apellido   | Promedio | EstadoAcademico |
-+--------------+-----------+------------+----------+-----------------+
-|            1 | Laura     | Gómez      |     4.60 | EXCELENTE       |
-|            2 | Andrés    | Rodríguez  |     4.07 | BUENO           |
-|            3 | Camila    | Torres     |     3.20 | APROBADO        |
-|            4 | Julián    | Martínez   |     2.63 | REPROBADO       |
-|            5 | Valentina | Ruiz       |     NULL | SIN NOTAS       |
-+--------------+-----------+------------+----------+-----------------+
-+--------------+---------------------+-----------------+------+
-| IdEstudiante | NombreCompleto      | FechaNacimiento | Edad |
-+--------------+---------------------+-----------------+------+
-|            1 | GÓMEZ, LAURA        | 2003-05-14      |   23 |
-|            4 | MARTÍNEZ, JULIÁN    | 2001-08-30      |   25 |
-|            2 | RODRÍGUEZ, ANDRÉS   | 2002-11-02      |   23 |
-|            5 | RUIZ, VALENTINA     | 2005-03-09      |   21 |
-|            3 | TORRES, CAMILA      | 2004-01-23      |   22 |
-+--------------+---------------------+-----------------+------+
++--------------+------------+------------+----------+-----------------+
+| IdEstudiante | Nombre     | Apellido   | Promedio | EstadoAcademico |
++--------------+------------+------------+----------+-----------------+
+|            1 | Laura      | Gómez      |     4.60 | EXCELENTE       |
+|            2 | Andrés     | Rodríguez  |     4.07 | BUENO           |
+|            3 | Camila     | Torres     |     3.20 | APROBADO        |
+|            4 | Julián     | Martínez   |     2.63 | REPROBADO       |
+|            5 | Valentina  | Ruiz       |     NULL | SIN NOTAS       |
+|            6 | Santiago   | Pérez      |     NULL | SIN NOTAS       |
+|            7 | Mariana    | López      |     NULL | SIN NOTAS       |
+|            8 | Sebastián  | Ramírez    |     NULL | SIN NOTAS       |
+|            9 | Isabella   | Castro     |     NULL | SIN NOTAS       |
+|           10 | Nicolás    | Herrera    |     NULL | SIN NOTAS       |
+|           11 | Gabriela   | Vargas     |     NULL | SIN NOTAS       |
+|           12 | Mateo      | Moreno     |     NULL | SIN NOTAS       |
+|           13 | Daniela    | Rojas      |     NULL | SIN NOTAS       |
+|           14 | Samuel     | Jiménez    |     NULL | SIN NOTAS       |
+|           15 | Sofía      | Díaz       |     NULL | SIN NOTAS       |
+|           16 | Tomás      | Gutiérrez  |     NULL | SIN NOTAS       |
+|           17 | Paula      | Romero     |     NULL | SIN NOTAS       |
+|           18 | Emilio     | Suárez     |     NULL | SIN NOTAS       |
+|           19 | Natalia    | Álvarez    |     NULL | SIN NOTAS       |
+|           20 | David      | Mendoza    |     NULL | SIN NOTAS       |
+|           21 | Juliana    | Ortiz      |     NULL | SIN NOTAS       |
+|           22 | Alejandro  | Castillo   |     NULL | SIN NOTAS       |
+|           23 | Antonella  | Peña       |     NULL | SIN NOTAS       |
+|           24 | Felipe     | Navarro    |     NULL | SIN NOTAS       |
+|           25 | Carolina   | Salazar    |     NULL | SIN NOTAS       |
+|           26 | Martín     | Cárdenas   |     NULL | SIN NOTAS       |
+|           27 | Luciana    | Guerrero   |     NULL | SIN NOTAS       |
+|           28 | Diego      | Medina     |     NULL | SIN NOTAS       |
+|           29 | Manuela    | Parra      |     NULL | SIN NOTAS       |
+|           30 | Esteban    | Quintero   |     NULL | SIN NOTAS       |
++--------------+------------+------------+----------+-----------------+
++--------------+----------------------+-----------------+------+
+| IdEstudiante | NombreCompleto       | FechaNacimiento | Edad |
++--------------+----------------------+-----------------+------+
+|           19 | ÁLVAREZ, NATALIA     | 2003-06-12      |   23 |
+|           26 | CÁRDENAS, MARTÍN     | 2004-03-21      |   22 |
+|           22 | CASTILLO, ALEJANDRO  | 2000-09-18      |   26 |
+|            9 | CASTRO, ISABELLA     | 2004-04-27      |   22 |
+|           15 | DÍAZ, SOFÍA          | 2003-11-25      |   22 |
+|            1 | GÓMEZ, LAURA         | 2003-05-14      |   23 |
+|           27 | GUERRERO, LUCIANA    | 2002-11-11      |   23 |
+|           16 | GUTIÉRREZ, TOMÁS     | 2001-05-09      |   25 |
+|           10 | HERRERA, NICOLÁS     | 2002-09-15      |   24 |
+|           14 | JIMÉNEZ, SAMUEL      | 2002-03-17      |   24 |
+|            7 | LÓPEZ, MARIANA       | 2003-07-19      |   23 |
+|            4 | MARTÍNEZ, JULIÁN     | 2001-08-30      |   25 |
+|           28 | MEDINA, DIEGO        | 2001-07-07      |   25 |
+|           20 | MENDOZA, DAVID       | 2001-10-29      |   24 |
+|           12 | MORENO, MATEO        | 2000-06-22      |   26 |
+|           24 | NAVARRO, FELIPE      | 2002-01-26      |   24 |
+|           21 | ORTIZ, JULIANA       | 2004-12-05      |   21 |
+|           29 | PARRA, MANUELA       | 2005-05-28      |   21 |
+|           23 | PEÑA, ANTONELLA      | 2005-04-02      |   21 |
+|            6 | PÉREZ, SANTIAGO      | 2002-02-11      |   24 |
+|           30 | QUINTERO, ESTEBAN    | 2003-02-03      |   23 |
+|            8 | RAMÍREZ, SEBASTIÁN   | 2001-12-03      |   24 |
+|            2 | RODRÍGUEZ, ANDRÉS    | 2002-11-02      |   23 |
+|           13 | ROJAS, DANIELA       | 2004-10-08      |   22 |
+|           17 | ROMERO, PAULA        | 2005-02-14      |   21 |
+|            5 | RUIZ, VALENTINA      | 2005-03-09      |   21 |
+|           25 | SALAZAR, CAROLINA    | 2003-09-09      |   23 |
+|           18 | SUÁREZ, EMILIO       | 2002-08-01      |   24 |
+|            3 | TORRES, CAMILA       | 2004-01-23      |   22 |
+|           11 | VARGAS, GABRIELA     | 2003-01-30      |   23 |
++--------------+----------------------+-----------------+------+
 +-------------+---------------------+-----------+----------+
 | IdMatricula | Estudiante          | NotaFinal | Estado   |
 +-------------+---------------------+-----------+----------+
@@ -84,17 +134,17 @@
 |          10 | MARTÍNEZ, JULIÁN    |       2.1 | REPROBADO |
 |          13 | RUIZ, VALENTINA     |      NULL | EN CURSO  |
 +-------------+---------------------+-----------+-----------+
-ERROR 1644 (45000) at line 303: La nota debe estar entre 0.0 y 5.0
-ERROR 1644 (45000) at line 305: La nota debe estar entre 0.0 y 5.0
-ERROR 1644 (45000) at line 308: La nota debe estar entre 0.0 y 5.0
-+---------------------------------------------+
-| resultado_sp                                |
-+---------------------------------------------+
-| OK: matrícula 16 registrada el 2026-10-28.  |
-+---------------------------------------------+
+ERROR 1644 (45000) at line 446: La nota debe estar entre 0.0 y 5.0
+ERROR 1644 (45000) at line 448: La nota debe estar entre 0.0 y 5.0
+ERROR 1644 (45000) at line 451: La nota debe estar entre 0.0 y 5.0
++----------------------------------------------+
+| resultado_sp                                 |
++----------------------------------------------+
+| OK: matrícula 112 registrada el 2026-10-28.  |
++----------------------------------------------+
 +-------------+-------------+--------------+---------+--------+----------------+---------------------+
 | IdAuditoria | IdMatricula | IdEstudiante | IdCurso | Accion | Usuario        | FechaHora           |
 +-------------+-------------+--------------+---------+--------+----------------+---------------------+
-|           1 |          15 |            5 |       3 | INSERT | root@localhost | 2026-10-28 16:24:37 |
-|           2 |          16 |            4 |       4 | INSERT | root@localhost | 2026-10-28 16:24:37 |
+|           1 |         111 |            5 |       3 | INSERT | root@localhost | 2026-10-28 17:03:24 |
+|           2 |         112 |            4 |       4 | INSERT | root@localhost | 2026-10-28 17:03:24 |
 +-------------+-------------+--------------+---------+--------+----------------+---------------------+

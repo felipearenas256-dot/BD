@@ -1,15 +1,15 @@
 +-----------------+-----------------------------+-----------+----------------+---------------------+---------------------+---------------+---------+----------------------+----------------------+--------------------+
 | Db              | Name                        | Type      | Definer        | Modified            | Created             | Security_type | Comment | character_set_client | collation_connection | Database Collation |
 +-----------------+-----------------------------+-----------+----------------+---------------------+---------------------+---------------+---------+----------------------+----------------------+--------------------+
-| universidad_umb | sp_actualizar_estados_curso | PROCEDURE | root@localhost | 2026-10-28 16:24:37 | 2026-10-28 16:24:37 | DEFINER       |         | utf8mb4              | utf8mb4_0900_ai_ci   | utf8mb4_unicode_ci |
-| universidad_umb | sp_clasificar_estudiante    | PROCEDURE | root@localhost | 2026-10-28 16:24:37 | 2026-10-28 16:24:37 | DEFINER       |         | utf8mb4              | utf8mb4_0900_ai_ci   | utf8mb4_unicode_ci |
-| universidad_umb | sp_registrar_matricula      | PROCEDURE | root@localhost | 2026-10-28 16:24:37 | 2026-10-28 16:24:37 | DEFINER       |         | utf8mb4              | utf8mb4_0900_ai_ci   | utf8mb4_unicode_ci |
+| universidad_umb | sp_actualizar_estados_curso | PROCEDURE | root@localhost | 2026-10-28 17:03:35 | 2026-10-28 17:03:35 | DEFINER       |         | utf8mb4              | utf8mb4_0900_ai_ci   | utf8mb4_unicode_ci |
+| universidad_umb | sp_clasificar_estudiante    | PROCEDURE | root@localhost | 2026-10-28 17:03:35 | 2026-10-28 17:03:35 | DEFINER       |         | utf8mb4              | utf8mb4_0900_ai_ci   | utf8mb4_unicode_ci |
+| universidad_umb | sp_registrar_matricula      | PROCEDURE | root@localhost | 2026-10-28 17:03:35 | 2026-10-28 17:03:35 | DEFINER       |         | utf8mb4              | utf8mb4_0900_ai_ci   | utf8mb4_unicode_ci |
 +-----------------+-----------------------------+-----------+----------------+---------------------+---------------------+---------------+---------+----------------------+----------------------+--------------------+
 +-----------------+---------------------+----------+----------------+---------------------+---------------------+---------------+---------+----------------------+----------------------+--------------------+
 | Db              | Name                | Type     | Definer        | Modified            | Created             | Security_type | Comment | character_set_client | collation_connection | Database Collation |
 +-----------------+---------------------+----------+----------------+---------------------+---------------------+---------------+---------+----------------------+----------------------+--------------------+
-| universidad_umb | fn_calcular_edad    | FUNCTION | root@localhost | 2026-10-28 16:24:37 | 2026-10-28 16:24:37 | DEFINER       |         | utf8mb4              | utf8mb4_0900_ai_ci   | utf8mb4_unicode_ci |
-| universidad_umb | fn_formatear_nombre | FUNCTION | root@localhost | 2026-10-28 16:24:37 | 2026-10-28 16:24:37 | DEFINER       |         | utf8mb4              | utf8mb4_0900_ai_ci   | utf8mb4_unicode_ci |
+| universidad_umb | fn_calcular_edad    | FUNCTION | root@localhost | 2026-10-28 17:03:35 | 2026-10-28 17:03:35 | DEFINER       |         | utf8mb4              | utf8mb4_0900_ai_ci   | utf8mb4_unicode_ci |
+| universidad_umb | fn_formatear_nombre | FUNCTION | root@localhost | 2026-10-28 17:03:35 | 2026-10-28 17:03:35 | DEFINER       |         | utf8mb4              | utf8mb4_0900_ai_ci   | utf8mb4_unicode_ci |
 +-----------------+---------------------+----------+----------------+---------------------+---------------------+---------------+---------+----------------------+----------------------+--------------------+
 +-------------------------------+--------+-----------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------+------------------------+-----------------------------------------------------------------------------------------------------------------------+----------------+----------------------+----------------------+--------------------+
 | Trigger                       | Event  | Table     | Statement                                                                                                                                                                                                       | Timing | Created                | sql_mode                                                                                                              | Definer        | character_set_client | collation_connection | Database Collation |
@@ -19,23 +19,23 @@
         SIGNAL SQLSTATE '45000'
             SET MESSAGE_TEXT = 'La nota debe estar entre 0.0 y 5.0';
     END IF;
-END | BEFORE | 2026-10-28 16:24:37.79 | ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION | root@localhost | utf8mb4              | utf8mb4_0900_ai_ci   | utf8mb4_unicode_ci |
+END | BEFORE | 2026-10-28 17:03:35.84 | ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION | root@localhost | utf8mb4              | utf8mb4_0900_ai_ci   | utf8mb4_unicode_ci |
 | trg_matricula_auditoria       | INSERT | Matricula | BEGIN
     INSERT INTO Auditoria_Matricula (IdMatricula, IdEstudiante, IdCurso, Accion, Usuario, FechaHora)
     VALUES (NEW.IdMatricula, NEW.IdEstudiante, NEW.IdCurso, 'INSERT', CURRENT_USER(), NOW());
-END    | AFTER  | 2026-10-28 16:24:37.80 | ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION | root@localhost | utf8mb4              | utf8mb4_0900_ai_ci   | utf8mb4_unicode_ci |
+END    | AFTER  | 2026-10-28 17:03:35.84 | ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION | root@localhost | utf8mb4              | utf8mb4_0900_ai_ci   | utf8mb4_unicode_ci |
 | trg_matricula_valida_nota_upd | UPDATE | Matricula | BEGIN
     IF NEW.NotaFinal IS NOT NULL AND (NEW.NotaFinal < 0 OR NEW.NotaFinal > 5.0) THEN
         SIGNAL SQLSTATE '45000'
             SET MESSAGE_TEXT = 'La nota debe estar entre 0.0 y 5.0';
     END IF;
-END | BEFORE | 2026-10-28 16:24:37.79 | ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION | root@localhost | utf8mb4              | utf8mb4_0900_ai_ci   | utf8mb4_unicode_ci |
+END | BEFORE | 2026-10-28 17:03:35.84 | ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION | root@localhost | utf8mb4              | utf8mb4_0900_ai_ci   | utf8mb4_unicode_ci |
 +-------------------------------+--------+-----------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------+------------------------+-----------------------------------------------------------------------------------------------------------------------+----------------+----------------------+----------------------+--------------------+
-+---------------------------------------------+
-| resultado                                   |
-+---------------------------------------------+
-| OK: matrícula 17 registrada el 2026-10-28.  |
-+---------------------------------------------+
++----------------------------------------------+
+| resultado                                    |
++----------------------------------------------+
+| OK: matrícula 113 registrada el 2026-10-28.  |
++----------------------------------------------+
 +---------------------------------------------------------+
 | resultado                                               |
 +---------------------------------------------------------+
@@ -44,7 +44,7 @@ END | BEFORE | 2026-10-28 16:24:37.79 | ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,N
 +-------------+--------------+---------+----------------+-----------+----------+
 | IdMatricula | IdEstudiante | IdCurso | FechaMatricula | NotaFinal | Estado   |
 +-------------+--------------+---------+----------------+-----------+----------+
-|          17 |            1 |       4 | 2026-10-28     |      NULL | EN CURSO |
+|         113 |            1 |       4 | 2026-10-28     |      NULL | EN CURSO |
 +-------------+--------------+---------+----------------+-----------+----------+
 +----------------+---------------------+
 | promedio_antes | clasificacion_antes |
@@ -67,13 +67,30 @@ ERROR 1644 (45000) at line 27: El estudiante no existe.
 +------+-------------------+
 |   26 | LÓPEZ, MARÍA      |
 +------+-------------------+
-+---------------------+------+
-| estudiante          | edad |
-+---------------------+------+
-| MARTÍNEZ, JULIÁN    |   25 |
-| GÓMEZ, LAURA        |   23 |
-| RODRÍGUEZ, ANDRÉS   |   23 |
-+---------------------+------+
++----------------------+------+
+| estudiante           | edad |
++----------------------+------+
+| MORENO, MATEO        |   26 |
+| CASTILLO, ALEJANDRO  |   26 |
+| MARTÍNEZ, JULIÁN     |   25 |
+| MEDINA, DIEGO        |   25 |
+| GUTIÉRREZ, TOMÁS     |   25 |
+| PÉREZ, SANTIAGO      |   24 |
+| RAMÍREZ, SEBASTIÁN   |   24 |
+| HERRERA, NICOLÁS     |   24 |
+| JIMÉNEZ, SAMUEL      |   24 |
+| SUÁREZ, EMILIO       |   24 |
+| MENDOZA, DAVID       |   24 |
+| NAVARRO, FELIPE      |   24 |
+| QUINTERO, ESTEBAN    |   23 |
+| GÓMEZ, LAURA         |   23 |
+| GUERRERO, LUCIANA    |   23 |
+| SALAZAR, CAROLINA    |   23 |
+| ÁLVAREZ, NATALIA     |   23 |
+| VARGAS, GABRIELA     |   23 |
+| LÓPEZ, MARIANA       |   23 |
+| RODRÍGUEZ, ANDRÉS    |   23 |
++----------------------+------+
 +-------------+---------------------+-----------+----------+
 | IdMatricula | estudiante          | NotaFinal | Estado   |
 +-------------+---------------------+-----------+----------+
@@ -81,12 +98,15 @@ ERROR 1644 (45000) at line 27: El estudiante no existe.
 |           5 | RODRÍGUEZ, ANDRÉS   |       3.9 | EN CURSO |
 |           8 | TORRES, CAMILA      |       3.5 | EN CURSO |
 |          11 | MARTÍNEZ, JULIÁN    |       4.5 | EN CURSO |
-|          14 | RUIZ, VALENTINA     |      NULL | EN CURSO |
+|          36 | MORENO, MATEO       |       4.4 | EN CURSO |
+|          45 | JIMÉNEZ, SAMUEL     |       3.5 | EN CURSO |
+|          89 | CÁRDENAS, MARTÍN    |       3.8 | EN CURSO |
+|         110 | RUIZ, VALENTINA     |      NULL | EN CURSO |
 +-------------+---------------------+-----------+----------+
 +-----------------------+
 | matriculas_procesadas |
 +-----------------------+
-|                     5 |
+|                     8 |
 +-----------------------+
 +-------------+---------------------+-----------+----------+
 | IdMatricula | estudiante          | NotaFinal | Estado   |
@@ -95,14 +115,17 @@ ERROR 1644 (45000) at line 27: El estudiante no existe.
 |           5 | RODRÍGUEZ, ANDRÉS   |       3.9 | APROBADO |
 |           8 | TORRES, CAMILA      |       3.5 | APROBADO |
 |          11 | MARTÍNEZ, JULIÁN    |       4.5 | APROBADO |
-|          14 | RUIZ, VALENTINA     |      NULL | EN CURSO |
+|          36 | MORENO, MATEO       |       4.4 | APROBADO |
+|          45 | JIMÉNEZ, SAMUEL     |       3.5 | APROBADO |
+|          89 | CÁRDENAS, MARTÍN    |       3.8 | APROBADO |
+|         110 | RUIZ, VALENTINA     |      NULL | EN CURSO |
 +-------------+---------------------+-----------+----------+
 +-----------+----------+
 | Estado    | cantidad |
 +-----------+----------+
-| APROBADO  |       11 |
-| REPROBADO |        2 |
-| EN CURSO  |        4 |
+| APROBADO  |       19 |
+| REPROBADO |        4 |
+| EN CURSO  |       90 |
 +-----------+----------+
 ERROR 1644 (45000) at line 55: La nota debe estar entre 0.0 y 5.0
 ERROR 1644 (45000) at line 57: La nota debe estar entre 0.0 y 5.0
@@ -114,8 +137,8 @@ ERROR 1644 (45000) at line 57: La nota debe estar entre 0.0 y 5.0
 +-------------+-------------+---------------------+-------------------------+--------+----------------+---------------------+
 | IdAuditoria | IdMatricula | estudiante          | curso                   | Accion | Usuario        | FechaHora           |
 +-------------+-------------+---------------------+-------------------------+--------+----------------+---------------------+
-|           1 |          15 | RUIZ, VALENTINA     | Estructuras de Datos    | INSERT | root@localhost | 2026-10-28 16:24:37 |
-|           2 |          16 | MARTÍNEZ, JULIÁN    | Ingeniería de Software  | INSERT | root@localhost | 2026-10-28 16:24:37 |
-|           3 |          17 | GÓMEZ, LAURA        | Ingeniería de Software  | INSERT | root@localhost | 2026-10-28 16:24:37 |
-|           4 |          18 | RODRÍGUEZ, ANDRÉS   | Ingeniería de Software  | INSERT | root@localhost | 2026-10-28 16:24:38 |
+|           1 |         111 | RUIZ, VALENTINA     | Estructuras de Datos    | INSERT | root@localhost | 2026-10-28 17:03:35 |
+|           2 |         112 | MARTÍNEZ, JULIÁN    | Ingeniería de Software  | INSERT | root@localhost | 2026-10-28 17:03:35 |
+|           3 |         113 | GÓMEZ, LAURA        | Ingeniería de Software  | INSERT | root@localhost | 2026-10-28 17:03:35 |
+|           4 |         114 | RODRÍGUEZ, ANDRÉS   | Ingeniería de Software  | INSERT | root@localhost | 2026-10-28 17:03:35 |
 +-------------+-------------+---------------------+-------------------------+--------+----------------+---------------------+
